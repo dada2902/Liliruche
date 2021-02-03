@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Site ecommerce"><!--description de la page-->
+    <meta name="keywords" content="miel"> <!--Mot clef de la page-->
+    <meta name="author" content="Amine, Hanine, Lylia, Patrick"><!--Auteur du site-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <title>{% block title %}LiliRuche{% endblock %}</title>
+
+    {% block stylesheets %}
+      <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="16x16">    <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="stylesheet" href="assets/css/panier.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/scroll.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    {% endblock %}
+
+  </head>
+  <body>
+
+  {# ----------------------------HEADER----------------------------- #}
+
+    <header class="bee">
+      <nav class="navbar">
+        <button id="myBtn_menu"><i class="fas fa-bars"></i></button>
+  
+        <!-- The Modal Menu -->
+        <div id="myModal_menu" class="modal_menu">
+          <div class="modal-content_menu">
+            <span class="close_menu">&times;</span>
+            <ul class="nav-link_menu">
+              <li><a href="#">Miels</a></li>
+              <li><a href="#">Epicerie fine</a></li>
+              <li><a href="#">Bien-être</a></li>
+              <li><a href="#">Coffrets Cadeaux</a></li>
+              <li><a href="#">Qui-sommes nous?</a></li>
+              <li><a href="#">Livraison et retours</a></li>
+              <li><a href="#">Paiment sécurisé</a></li>
+              <li> <a href="#">Mentions légales et CGV</a></li>
+              <li><a href="#">Contact</a></li>                    
+            </ul>
+          </div>
+        </div>
+
+        <div class="logo">
+          <h4><a>LiliRuche</a></h4>
+        </div>
+
+        <div class="panier_search">
+
+          <button id="myBtn_search"><i class="fas fa-search"></i></button>
+          <div id="myModal_search" class="modal_search">
+            <div class="modal-content_search">
+              <span class="close_search">&times;</span>
+            
+              <form action="">
+                <input type="search" id="search_bar">
+              </form>
+              
+            </div>
+          </div>
+    
+          <button id="myBtn_panier"><i class="fas fa-shopping-cart"></i></button>    
+          <div id="myModal_panier" class="modal_panier">
+            <div class="modal-content_panier">
+              <span class="close_panier">&times;</span>
+              <ul class="nav-link_panier">
+                <li><a href="#">Commandes</a></li>
+                <li><a href="#">Mise à l'écart</a></li>
+                <li><a href="#">Valider</a></li>                   
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <button id="scrollToTopBtn"><i class="fab fa-airbnb"></i></button>
+    </div>
+    </header>
+
+    {# <!-- ---------------------------HEADER------------------------------ --> #}
+    {# <!-- --------------------------------------------------------------- --> #}
+
+ {% block main %}
+    <main>
+      <div class="container_main">
+          <form action="">
+              <ul id="main_list">
+                  <li><a href="">Miels</a></li>
+                  <li><a href="">Epicerie fine</a></li>
+                  <li><a href="">Bien-être</a></li>
+                  <li><a href="">Coffrets Cadeaux</a></li>
+              </ul>
+          </form>
+      </div>
+      <div>
+      </div>
+    </main>
+ {% endblock %}
+    
+
+    {# <!-- --------------------------------------------------------------- --> #}
+    {# <!-- --------------------------------------------------------------- --> #}
+
+
+    <footer>
+      <div class="liste_footer">
+          <div class="container_list">
+              <ul class="list">
+                  <li><a href="#">Miels</a></li>
+                  <li><a href="#">Epicerie fine</a></li>
+                  <li><a href="#">Bien-être</a></li>
+                  <li><a href="#">Coffrets Cadeaux</a></li>                  
+              </ul>
+          </div>
+          <div class="container_list">
+              <ul class="list">
+                  <li><a href="#">Qui-sommes nous?</a></li>
+                  <li><a href="#">Livraison et retours</a></li>
+                  <li><a href="#">Paiment sécurisé</a></li>
+                  <li> <a href="#">Mentions légales et CGV</a></li>
+              </ul>
+          </div>
+          <div class="container_list">
+              <ul class="list">
+                  <li><a href="#">Mon profil</a></li>
+                  <li><a href="#">Commandes</a></li>
+                  <li><a href="#">Mise à l'écart</a></li>
+                  <li><a href="#">Contact</a></li>                    
+              </ul>
+          </div>
+      </div>
+      <div class="copyright">
+          <div class="div_copy">
+              <ul id="ul_copy">
+                  <li>Copyright &copy 2021</li>
+                  <li>Groupe 3: Amine, Hanine, Lylia, Patrick</li>
+              </ul>
+          </div>
+      </div>
+
+    </footer>
+
+    {% block javascripts %}
+      <script src="assets/js/menu.js" ></script>
+      <script src="assets/js/panier.js" ></script>
+      <script src="assets/js/search.js" ></script>
+      <script src="assets/js/scroll.js"></script>
+      <script src="https://kit.fontawesome.com/6e1e5f7faa.js" crossorigin="anonymous"></script>    
+    {% endblock %}
+
+    <script src="assets/js/menu.js" ></script>
+    <script src="assets/js/panier.js" ></script>
+    <script src="assets/js/search.js" ></script>
+    <script src="assets/js/scroll.js"></script>
+    <script src="https://kit.fontawesome.com/6e1e5f7faa.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>

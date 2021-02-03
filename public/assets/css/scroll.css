@@ -1,0 +1,19 @@
+#scrollToTopBtn {
+  background-color: rgba(90, 83, 83, 0.5);
+  border: none;
+  border-radius: 5%;
+  color: rgba(90, 83, 83, 0.5);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  box-shadow: 3px 3px 3px #4e483f;
+}
+
+#scrollToTopBtn i {
+  color: rgb(209, 209, 209);
+  font-size: 20px;
+}
