@@ -21,6 +21,16 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+       
+        return $this->render('home.html.twig');
+           
+    }
+
+    /**
+     * @Route("/affichage-product", name="affichage-product")
+    */
+    public function affichage()
+    {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('affichage.html.twig', [
             'products' => $products
@@ -124,5 +134,5 @@ class HomeController extends AbstractController
 
 
 }
-}
+
 
