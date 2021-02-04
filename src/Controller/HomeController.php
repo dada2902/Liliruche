@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
+use App\Form\ProductType;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
