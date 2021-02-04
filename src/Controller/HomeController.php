@@ -19,4 +19,12 @@ class HomeController extends AbstractController
     {
         return $this->render('home.html.twig');
     }
+
+    /**
+     * @Route("/app_login", name="login")
+     */
+    public function login()
+    {
+        return $this->render('security/login.html.twig');
+    }
 }
