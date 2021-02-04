@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card mt-4">
+        <img class="card-img-top" src="http://placehold.it/900x400" alt="">
+        <div class="card-body">
+            <h3 class="card-title">{{ product.nomDeProduit }}</h3>
+            <h4>{{ product.prix ~ ' €'}}</h4>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">{{ product.category.nom }}</p>
+        </div>
+    </div>
+    
+    <div class="card card-outline-secondary my-4">
+        <div class="card-header">Actions</div>
+
+        <div class="card-body">
+            <a href="{{ path('edit-product', {id: product.id}) }}" class="btn btn-success">Modifier</a>
+            <a href="{{ path('delete-product', {id: product.id}) }}" class="btn btn-danger">Supprimer</a>
+        </div>
+    </div>   
+{% endblock %}
