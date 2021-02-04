@@ -17,27 +17,32 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('username')
-        ->add('email')
-        ->add('password', PasswordType::class, [
-            // instead of being set onto the object directly,
-            // this is read and encoded in the controller
-            'mapped' => false,
-            'constraints' => [
-                new NotBlank([
-                    'message' => 'Please enter a password',
-                ]),
-                new Length([
-                    'min' => 6,
-                    'minMessage' => 'Your password should be at least {{ limit }} characters',
-                    // max length allowed by Symfony for security reasons
-                    'max' => 4096,
-                ]),
-            ],
-            
-        ]);
-       
-}
+
+            ->add('nom')
+            ->add('prenom')
+            ->add('telephone')
+            ->add('date_de_naissance')
+            ->add('email')
+            ->add('password', PasswordType::class, [
+                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a password',
+                    ]),
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
+            ]);
+    }
+
+ 
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

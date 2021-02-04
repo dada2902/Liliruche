@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% endblock %}
 
 {% block body %}
+<div class="container">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.telephone) }}
+        {{ form_row(registrationForm.date_de_naissance) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.password, {
-            label: 'Password'
+
+            label: 'Mot de passe'
         }) }}
 
         <button type="submit" class="btn btn-info">S'inscrire</button>
     {{ form_end(registrationForm) }}
+</div>
 {% endblock %}
