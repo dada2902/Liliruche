@@ -17,6 +17,7 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
@@ -39,6 +40,9 @@ class RegistrationFormType extends AbstractType
                 ],
             ]);
     }
+
+ 
+
 
     public function configureOptions(OptionsResolver $resolver)
     {
