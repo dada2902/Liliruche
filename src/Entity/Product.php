@@ -17,10 +17,10 @@ class Product
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom_de_produit;
+    // /**
+    //  * @ORM\Column(type="string", length=255)
+    //  */
+    // private $nom_de_produit;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -37,6 +37,11 @@ class Product
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomDeProduit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,12 +49,12 @@ class Product
 
     public function getNomDeProduit(): ?string
     {
-        return $this->nom_de_produit;
+        return $this->nomDeProduit;
     }
 
-    public function setNomDeProduit(string $nom_de_produit): self
+    public function setNomDeProduit(string $nomDeProduit): self
     {
-        $this->nom_de_produit = $nom_de_produit;
+        $this->nomDeProduit = $nomDeProduit;
 
         return $this;
     }
