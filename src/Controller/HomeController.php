@@ -65,23 +65,23 @@ class HomeController extends AbstractController
      * @Route("/add-product", name="add-product")
      */
     public function addProduct(Request $request)
-    {  
+    {
         $new_product = new Product;
         $form = $this->createForm(ProductType::class, $new_product);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
-         $entityManager = $this->getDoctrine()->getManager();
-         $entityManager->persist($new_product);
-         $entityManager->flush();
-       
-         return $this->redirectToRoute('index');  
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($new_product);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('index');
         }
 
-         return $this->render('product.html.twig', [
-        "form" => $form->createView()
-    ]);
+        return $this->render('product.html.twig', [
+            "form" => $form->createView()
+        ]);
     }
 
       /**
@@ -124,3 +124,5 @@ class HomeController extends AbstractController
 
 
 }
+}
+
