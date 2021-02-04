@@ -1,2 +1,30 @@
-{% extends 'home.html.twig' %}
-{% block main %}{% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajouter un produit {% endblock %}
+
+{% block body %}
+
+    <h1> Ajouter un produit </h1>
+
+    {{ form_start(form) }}
+     
+       <div class="row mt-4">
+           <div class="col">
+             {{ form_label(form.nom_de_produit, 'Nom du produit') }}
+             {{ form_widget(form.nom_de_produit) }}
+           </div>
+       </div>
+       <div class="row">
+          <div class="col">
+            {{ form_row(form.prix, {'attr': {'class': 'priceColor'}}) }}
+          </div>
+          <div class="col">
+            {{ form_row(form.category) }}
+          </div>
+          <div class="col">
+            {{ form_row(form.description) }}
+          </div>
+       </div>
+{{ form_end(form) }}
+       
+{% endblock %}
