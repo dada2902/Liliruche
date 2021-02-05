@@ -4,7 +4,7 @@
 
   
 {% block body %}
-    <h1> Listes des produits </h1>
+     <h1> Listes des produits </h1>
 
   <table class="table table-dark table-striped">
   <thead>
@@ -26,12 +26,11 @@
             <td>{{ product.prix }}</td>
             <td>{{ product.category.nom }}</td> 
             <td>{{ product.description }}</td>
-            <td><a href="{{ path('show-product', {id : product.id}) }}" type="button" class="btn btn-info">Afficher</a></td>
             <td><a href="{{ path('edit-product', {id : product.id}) }}" type="button" class="btn btn-warning">Modifier</a></td>
             <td><a href="{{ path('delete-product', {id : product.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
     </tr>
      {% endfor %} 
   </tbody>
   </table>
-    
+     
 {% endblock %}
