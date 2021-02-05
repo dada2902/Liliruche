@@ -7,19 +7,27 @@
     <meta name="author" content="Amine, Hanine, Lylia, Patrick"><!--Auteur du site-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>LiliRuche</title>
-    <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="16x16">    <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="16x16">
+
+
+    <title>{% block title %}LiliRuche{% endblock %}</title>
+
+    {% block stylesheets %}
+    <link rel="stylesheet" href="assets/css/menu.css">
     <link rel="stylesheet" href="assets/css/panier.css">
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/search.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    {% endblock %}
 
   </head>
   <body>
+
+  {# ----------------------------HEADER----------------------------- #}
+
     <header class="bee">
-      
       <nav class="navbar">
         <button id="myBtn_menu"><i class="fas fa-bars"></i></button>
   
@@ -76,7 +84,3 @@
         <button id="scrollToTopBtn"><i class="fab fa-airbnb"></i></button>
     </div>
     </header>
-    <div class="image">
-      <a href="#"><img src="assets/img/logo.jpeg" alt="">
-      </a>
-    </div>

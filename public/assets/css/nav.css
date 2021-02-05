@@ -1,11 +1,3 @@
-img {
-  position: absolute;
-  top: 32%;
-  left: 40%;
-  width: 20%;
-  z-index: 0;
-}
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -14,7 +6,6 @@ nav {
   background-color: #7b7171;
   width: 100%;
   position: fixed;
-  z-index: 1;
 }
 
 .logo {
@@ -27,7 +18,7 @@ nav {
 }
 
 .bee {
-  background-image: url(../img/bee.jpg);
+  background-image: url(../img/miel.webp);
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -45,14 +36,6 @@ nav {
   /* body {
     display: none;
   } */
-  img {
-    position: absolute;
-    top: 33%;
-    left: 35%;
-    width: 30%;
-    z-index: 0;
-  }
-
   nav {
     display: flex;
     justify-content: space-between;
@@ -61,7 +44,6 @@ nav {
     background-color: #7b7171;
     width: 100%;
     position: fixed;
-    z-index: 1;
   }
 
   .logo {
@@ -74,7 +56,7 @@ nav {
   }
 
   .bee {
-    background-image: url(../img/bee.jpg);
+    background-image: url(../img/miel.webp);
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -114,15 +96,6 @@ nav {
   /* body {
     display: block;
   } */
-
-  img {
-    position: absolute;
-    top: 34%;
-    left: 22%;
-    width: 50%;
-    z-index: 0;
-  }
-
   nav {
     display: flex;
     justify-content: space-between;
