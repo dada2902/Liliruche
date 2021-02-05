@@ -4,91 +4,40 @@
 
     {% block stylesheets %}
         <link rel="stylesheet" href="assets/css/connexion.css">
-        {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> #}
     {% endblock %}
 
 {% block body %}
-<div class="container">
-<form method="post">
-    {# {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %} #}
 
-    {# {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.prenom }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %} #}
+<form action="" method="post" class="form_connexion">
+    <h1 class="connexion">Connexion</h1>
+    <div class="container_connexion"> 
+        
+        <label class="label_connexion" for="inputEmail"><b>Adresse Email</b></label>
+        <input class="input_connexion" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Entrer votre e-mail" required autofocus>
+        <label class="label_connexion" for="inputPassword"><b>Mot de passe</b></label>
+        <input class="input_connexion" type="password" placeholder="Entrer votre Mot de Passe" name="password" id="inputPassword" required>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button  type="submit" class="button_connexion">Connexion</button>
 
-    {# <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    > #}
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    {# <button class="btn btn-lg btn-primary" type="submit">
-        Connecté
-    </button> #}
-
-</form>
-</div>
-
-      <form action="" method="post" class="form_connexion">
-        <h1 class="connexion">Connexion</h1>
-        <div class="container_connexion">
-          
-            <label class="label_connexion" for="inputEmail"><b>Adresse Email</b></label>
-            <input class="input_connexion" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Entrer votre e-mail" required autofocus>
-
-            {# <input class="input_connexion" type="text" placeholder="Entrer votre e-mail" name="e-mail" required>  #}
-            <label class="label_connexion" for="inputPassword"><b>Mot de passe</b></label>
-            <input class="input_connexion" type="password" placeholder="Entrer votre Mot de Passe" name="password" id="inputPassword" required>
-
-            <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-    >
-            <button  type="submit" class="button_connexion">Connexion</button>
-
-          <div class="input_rester">
-
+        <div class="input_rester">
+        
             <input  class="input_con"type="checkbox" name="Rester_connecte">
             <label class="input_con" for="">Rester connecté</label>
             <label class="input_con"><a href="#">Mot de passe oublié</a></label>
-
-          </div>
-
         </div>
-      </form>
 
+    </div>
+</form>
 
-  
-
-    <footer>
- 
-      <div class="copyright">
-          <div class="div_copy">
-              <ul class="ul_copy">
-                  <li>Copyright &copy 2021</li>
-                  <li>Groupe 3: Amine, Lylia, Patrick</li>
-              </ul>
-          </div>
-      </div>
-
-    </footer>
+{# <footer>
+    <div class="copyright">
+        <div class="div_copy">
+            <ul class="ul_copy">
+                <li>Copyright &copy 2021</li>
+                <li>Groupe 3: Amine, Lylia, Patrick</li>
+            </ul>
+        </div>
+    </div>
+</footer> #}
 
 {% endblock %}
