@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des Catégories {% endblock %}
+
+  
+{% block body %}
+    <h1> Listes des Catégories </h1>
+
+  <table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Déscription</th>
+      <th scope="col" class="centrer">Action</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      {% for category in categories %} 
+    <tr>
+        <th scope="row">{{ category.id }}</th>
+            <td>{{ category.nom }}</td> 
+            <td>{{ category.description }}</td>
+            <td><a href="{{ path('show-category', {id : category.id}) }}" type="button" class="btn btn-info">Afficher</a></td>
+            <td><a href="{{ path('edit-category', {id : category.id}) }}" type="button" class="btn btn-warning">Modifier</a></td>
+            <td><a href="{{ path('delete-category', {id : category.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
+    </tr>
+     {% endfor %} 
+  </tbody>
+  </table>
+    
+{% endblock %}
