@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Entity\Category;
+use App\Entity\User;
 use App\Form\CategoryType;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +33,7 @@ class HomeController extends AbstractController
   public function affichage()
   {
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-    return $this->render('admin/affichage.html.twig', [
+    return $this->render('admin/affichageproduct.html.twig', [
       'products' => $products
     ]);
   }
@@ -50,7 +51,7 @@ class HomeController extends AbstractController
       throw new Exception("Erreur : Il n'y a aucun produit avec l'id : $id");
     }
 
-    return $this->render('admin/detail.html.twig', [
+    return $this->render('admin/detailproduct.html.twig', [
       'categories' => $categories,
       'product' => $product
     ]);
@@ -63,7 +64,7 @@ class HomeController extends AbstractController
   public function product($id)
   {
     $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
-    return $this->render('admin/product.html.twig', [
+    return $this->render('admin/addproduct.html.twig', [
       "id" => $id,
       "product" => $product
     ]);
@@ -87,7 +88,7 @@ class HomeController extends AbstractController
       return $this->redirectToRoute('affichage-product');
     }
 
-    return $this->render('admin/product.html.twig', [
+    return $this->render('admin/addproduct.html.twig', [
       "form" => $form->createView()
     ]);
   }
@@ -109,7 +110,7 @@ class HomeController extends AbstractController
       return $this->redirectToRoute('affichage-product');
     }
 
-    return $this->render('admin/product.html.twig', [
+    return $this->render('admin/addproduct.html.twig', [
       "form" => $form->createView()
     ]);
   }
@@ -137,29 +138,10 @@ class HomeController extends AbstractController
   public function affichageCategory()
   {
     $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-    return $this->render('admin/affichage.category.html.twig', [
+    return $this->render('admin/affichagecategory.html.twig', [
       'categories' => $categories
     ]);
   }
-
-  /**
-   * @Route("/show-category/{id}", name="show-category")
-   */
-  public function showCategory($id): Response
-  {
-    $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-    $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
-
-    if (!$category) {
-      throw new Exception("Erreur : Il n'y a aucune categorie avec l'id : $id");
-    }
-
-    return $this->render('admin/detail.category.html.twig', [
-      'category' => $category,
-      'products' => $products
-    ]);
-  }
-
 
   /**
    *@Route("/category/{id}", name="category")
@@ -167,7 +149,7 @@ class HomeController extends AbstractController
   public function category($id)
   {
     $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
-    return $this->render('admin/category.html.twig', [
+    return $this->render('admin/addcategory.html.twig', [
       "id" => $id,
       "category" => $category
     ]);
@@ -191,7 +173,7 @@ class HomeController extends AbstractController
       return $this->redirectToRoute('affichage-category');
     }
 
-    return $this->render('admin/category.html.twig', [
+    return $this->render('admin/addcategory.html.twig', [
       "form" => $form->createView()
     ]);
   }
@@ -213,7 +195,7 @@ class HomeController extends AbstractController
       return $this->redirectToRoute('affichage-category');
     }
 
-    return $this->render('admin/category.html.twig', [
+    return $this->render('admin/addcategory.html.twig', [
       "form" => $form->createView()
     ]);
   }
@@ -232,4 +214,34 @@ class HomeController extends AbstractController
 
     return $this->redirectToRoute('affichage-category');
   }
+
+
+  //-------------------------- UTILISATEURS ------------------------------------- 
+
+   /**
+   * @Route("/affichage-user", name="affichage-user")
+   */
+  public function affichageUser()
+  {
+    $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+    return $this->render('admin/affichageuser.html.twig', [
+      'users' => $users
+    ]);
+  }
+
+    /**
+   * @Route("/delete-user/{id}", name="delete-user")
+   */
+
+  public function deleteUser($id)
+  {
+    $entityManager = $this->getDoctrine()->getManager();
+    $users = $entityManager->getRepository(User::class)->find($id);
+
+    $entityManager->remove($users);
+    $entityManager->flush();
+
+    return $this->redirectToRoute('affichage-user');
+  }
+
 }
