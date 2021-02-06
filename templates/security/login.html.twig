@@ -3,13 +3,15 @@
 {% block title %}Connexion{% endblock %}
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="assets/css/connexion.css">
+        <link rel="stylesheet" href="assets/css/connecion.css">
     {% endblock %}
 
 {% block body %}
+<body>
+    <h1><i class="fas fa-user"></i><br>Connexion</h1>  
 
 <form action="" method="post" class="form_connexion">
-    <h1 class="connexion">Connexion</h1>
+    <div class="connexion"><a href=""><img src="assets/img/logo.jpeg" alt=""></a></div>
     <div class="container_connexion"> 
         
         <label class="label_connexion" for="inputEmail"><b>Adresse Email</b></label>
@@ -28,16 +30,6 @@
 
     </div>
 </form>
-
-{# <footer>
-    <div class="copyright">
-        <div class="div_copy">
-            <ul class="ul_copy">
-                <li>Copyright &copy 2021</li>
-                <li>Groupe 3: Amine, Lylia, Patrick</li>
-            </ul>
-        </div>
-    </div>
-</footer> #}
+</body>
 
 {% endblock %}

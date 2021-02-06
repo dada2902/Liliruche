@@ -7,24 +7,45 @@
 
 body {
   height: auto;
-  /* overflow: hidden; */
+  background-image: url(../img/connexion.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(74, 64, 64);
+  margin-top: 3%;
+}
+
+i {
+  color: rgb(74, 64, 64);
+  padding: 20px;
 }
 
 .connexion {
   text-align: center;
-  margin-top: 10%;
-  font-size: 50px;
+  margin-top: 5%;
+  font-size: 25px;
+  width: 100%;
+  /* background-color: red; */
+}
+
+img {
+  width: 50%;
+  margin: auto;
 }
 
 .form_connexion {
   height: 10%;
-  width: 20rem;
+  width: 350px;
   margin: auto;
-  margin-top: 8rem;
-  border: 1px solid;
+  margin-top: 0rem;
+  /* border: 1px solid; */
   padding: 15px;
   border-radius: 10px;
   box-shadow: 10px 5px 5px grey;
+  background-color: white;
 }
 
 .container_connexion {
