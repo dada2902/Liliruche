@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/lien_deco.css">
     {% endblock %}
 
   </head>
@@ -51,9 +52,7 @@
               <li><a href="#">Livraison et retours</a></li>
               <li><a href="#">Paiment sécurisé</a></li>
               <li><a href="#">Mentions légales et CGV</a></li>
-              <li><a href="#">Contact</a></li>
-            
-             
+              <li><a href="#">Contact</a></li>             
                {% endif %} 
             </ul>
           </div>
@@ -97,4 +96,15 @@
      <div class="image">
       <a href="#"><img src="assets/img/logo.jpeg" alt="">
       </a>
+    </div>
+    <div class="div_deco" >
+      <ul class="deco">
+        {% if app.user %} 
+        <li><a href="#">Compte</a></li>
+        <li><a href="{{ path('app_logout')}}">Déconnexion</a></li>
+        {% else %} 
+        <li><a href="{{ path('app_login')}}">Connexion</a></li>
+        <li><a href="{{ path('app_register')}}">Créer un compte?</a></li>
+        {% endif %} 
+      </ul>
     </div>
