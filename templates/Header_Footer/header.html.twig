@@ -37,11 +37,11 @@
             <span class="close_menu">&times;</span>
             <ul class="nav-link_menu">
                 {% if app.user %} 
-               <li><a href="{{ path('affichage-product')}}">Modification et suppression des produits</a></li>
-               <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
-               <li><a href="{{ path('affichage-category')}}">Modification et suppression des catégories</a></li>
-               <li><a href="{{ path('add-category')}}">Ajout de catégories</a></li>
-               <li><a href="{{ path('affichage-user')}}">Gestion des utilisateurs</a></li>   
+              <li><a href="{{ path('affichage-product')}}">Modif/Suppression produits</a></li>
+              <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
+              <li><a href="{{ path('affichage-category')}}">Modif/Suppression catégories</a></li>
+              <li><a href="{{ path('add-category')}}">Ajout de catégories</a></li>
+              <li><a href="{{ path('affichage-user')}}">Gestion des utilisateurs</a></li>   
                 {% else %} 
               <li><a href="#">Miels</a></li>
               <li><a href="#">Epicerie fine</a></li>
