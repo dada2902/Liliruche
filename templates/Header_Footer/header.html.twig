@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="assets/css/panier.css">
     <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/search.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/footers.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/lien_deco.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/cgv.css">
     {% endblock %}
 
   </head>
@@ -36,13 +39,13 @@
           <div class="modal-content_menu">
             <span class="close_menu">&times;</span>
             <ul class="nav-link_menu">
-                 {% if app.user %}  
-               <li><a href="{{ path('affichage-product')}}">Modification et suppression des produits</a></li>
-               <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
-               <li><a href="{{ path('affichage-category')}}">Modification et suppression des catégories</a></li>
-               <li><a href="{{ path('add-category')}}">Ajout de catégories</a></li>
-               <li><a href="{{ path('affichage-user')}}">Gestion des utilisateurs</a></li>   
-                 {% else %}  
+                {% if app.user %} 
+              <li><a href="{{ path('affichage-product')}}">Modif/Suppression produits</a></li>
+              <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
+              <li><a href="{{ path('affichage-category')}}">Modif/Suppression catégories</a></li>
+              <li><a href="{{ path('add-category')}}">Ajout de catégories</a></li>
+              <li><a href="{{ path('affichage-user')}}">Gestion des utilisateurs</a></li>   
+                {% else %} 
               <li><a href="#">Miels</a></li>
               <li><a href="#">Epicerie fine</a></li>
               <li><a href="#">Bien-être</a></li>
@@ -50,17 +53,15 @@
               <li><a href="#">Qui-sommes nous?</a></li>
               <li><a href="#">Livraison et retours</a></li>
               <li><a href="#">Paiment sécurisé</a></li>
-              <li><a href="#">Mentions légales et CGV</a></li>
-              <li><a href="#">Contact</a></li>
-            
-             
-                {% endif %}  
+              <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
+              <li><a href="{{ path('contact')}}">Contact</a></li>             
+               {% endif %} 
             </ul>
           </div>
         </div>
 
         <div class="logo">
-          <h4><a>LiliRuche</a></h4>
+          <h4><a class="web_name" href="{{ path('index')}}">LiliRuche</a></h4>
         </div>
 
         <div class="panier_search">
@@ -95,6 +96,19 @@
     </div>
     </header>
      <div class="image">
-      <a href="#"><img src="assets/img/logo.jpeg" alt="">
+      <a href="{{ path('index')}}"><img src="assets/img/logo.jpeg" alt="">
       </a>
     </div>
+    <div class="div_deco" >
+      <ul class="deco">
+        {% if app.user %} 
+        <li class="mb-3"><a><strong>Bonjour !</strong> {{ app.user.username }}</a></li>
+        <li><a href="#">Compte</a></li>
+        <li><a href="{{ path('app_logout')}}">Déconnexion</a></li>
+        {% else %} 
+        <li><a href="{{ path('app_login')}}">Connexion</a></li>
+        <li><a href="{{ path('app_register')}}">Créer un compte?</a></li>
+        {% endif %} 
+      </ul>
+    </div>
+© 2021 GitHub, Inc.

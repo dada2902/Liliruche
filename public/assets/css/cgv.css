@@ -1,0 +1,23 @@
+.container_cgu {
+  width: 90%;
+  padding: 5%;
+  margin: auto;
+}
+
+p {
+  padding: 1%;
+}
+
+h1 {
+  text-align: center;
+  padding: 50px;
+}
+
+h2 {
+  padding: 20px;
+}
+
+.ml {
+  padding: 20px;
+  font-size: 23px;
+}
