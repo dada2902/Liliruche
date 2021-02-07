@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -55,6 +57,21 @@ class User implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_de_naissance;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="users")
+     */
+    private $contact;
+
+    /**
+     * @ORM\OneToMany(targetEntity=contact::class, mappedBy="user")
+     */
+    private $Contacts;
+
+    public function __construct()
+    {
+        $this->Contacts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -178,6 +195,48 @@ class User implements UserInterface
     public function setDateDeNaissance(?\DateTimeInterface $date_de_naissance): self
     {
         $this->date_de_naissance = $date_de_naissance;
+
+        return $this;
+    }
+
+    public function getContact(): ?Contact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?Contact $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|contact[]
+     */
+    public function getContacts(): Collection
+    {
+        return $this->Contacts;
+    }
+
+    public function addContact(contact $contact): self
+    {
+        if (!$this->Contacts->contains($contact)) {
+            $this->Contacts[] = $contact;
+            $contact->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(contact $contact): self
+    {
+        if ($this->Contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getUser() === $this) {
+                $contact->setUser(null);
+            }
+        }
 
         return $this;
     }
