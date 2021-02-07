@@ -15,13 +15,14 @@
     {% block stylesheets %}
     <link rel="stylesheet" href="assets/css/menu.css">
     <link rel="stylesheet" href="assets/css/panier.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/search.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/footers.css">
     <link rel="stylesheet" href="assets/css/scroll.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/lien_deco.css">
     <link rel="stylesheet" href="assets/css/cgv.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     {% endblock %}
 
   </head>
@@ -53,7 +54,7 @@
               <li><a href="#">Livraison et retours</a></li>
               <li><a href="#">Paiment sécurisé</a></li>
               <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
-              <li><a href="#">Contact</a></li>             
+              <li><a href="{{ path('contact')}}">Contact</a></li>             
                {% endif %} 
             </ul>
           </div>

@@ -38,6 +38,17 @@ class HomeController extends AbstractController
     return $this->render('info/cgv.html.twig');
   }
 
+  // ---------------------------  CONTACT  -----------------------------------------
+
+  /**
+   * @Route("/contact", name="contact")
+   */
+  public function contact()
+  {
+
+    return $this->render('info/contact.html.twig');
+  }
+
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
    * @Route("/affichage-product", name="affichage-product")
