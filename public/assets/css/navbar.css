@@ -26,6 +26,11 @@ nav {
   margin-left: 8%;
 }
 
+.web_name {
+  text-decoration: none;
+  color: rgb(209, 209, 209);
+}
+
 .bee {
   background-image: url(../img/bee.jpg);
   background-size: cover;

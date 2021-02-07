@@ -26,6 +26,18 @@ class HomeController extends AbstractController
 
     return $this->render('home.html.twig');
   }
+
+  // ---------------------------  MENTIONS LEGALS CGV  -----------------------------------------
+
+  /**
+   * @Route("/cgv", name="cgv")
+   */
+  public function cgv()
+  {
+
+    return $this->render('info/cgv.html.twig');
+  }
+
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
    * @Route("/affichage-product", name="affichage-product")
@@ -218,7 +230,7 @@ class HomeController extends AbstractController
 
   //-------------------------- UTILISATEURS ------------------------------------- 
 
-   /**
+  /**
    * @Route("/affichage-user", name="affichage-user")
    */
   public function affichageUser()
@@ -229,7 +241,7 @@ class HomeController extends AbstractController
     ]);
   }
 
-    /**
+  /**
    * @Route("/delete-user/{id}", name="delete-user")
    */
 
@@ -243,5 +255,4 @@ class HomeController extends AbstractController
 
     return $this->redirectToRoute('affichage-user');
   }
-
 }
