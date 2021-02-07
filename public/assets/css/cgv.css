@@ -20,15 +20,4 @@ h2 {
 .ml {
   padding: 20px;
   font-size: 23px;
-  margin-left: -6%;
-}
-
-ul {
-  list-style: inherit;
-  width: 100%;
-  margin-left: 6.4%;
-}
-
-ul li {
-  margin-left: 0%;
 }
