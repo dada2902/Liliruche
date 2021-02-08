@@ -39,7 +39,8 @@
           <div class="modal-content_menu">
             <span class="close_menu">&times;</span>
             <ul class="nav-link_menu">
-                {% if app.user %} 
+
+                {% if is_granted('ROLE_ADMIN') %} 
               <li><a href="{{ path('affichage-product')}}">Modif/Suppression produits</a></li>
               <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
               <li><a href="{{ path('affichage-category')}}">Modif/Suppression catégories</a></li>
@@ -54,7 +55,7 @@
               <li><a href="#">Livraison et retours</a></li>
               <li><a href="#">Paiment sécurisé</a></li>
               <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
-              <li><a href="{{ path('contact')}}">Contact</a></li>             
+              <li><a href="{{ path('add-contact')}}">Contact</a></li>             
                {% endif %} 
             </ul>
           </div>

@@ -1,0 +1,35 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+ {% block body %}
+     <div class="container_flex">
+        <div class="info_contact">
+          <ul>
+            <h1>Nous contacter ?</h1>
+            <li>Adresse: 12, rue de Maupassant - 75000 Paris</li>
+            <li>Téléphone : 01 11 12 13 14</li>
+            <li>Email: liliruche@hotmail.fr</li>
+            <li>Horaires d'ouvertures : 9H30-19H00</li>
+          </ul>
+        </div>
+  
+        <div class="contact_container">
+  
+          <label   for="prenom"><b>Prénom</b></label>
+          <input   type="text" placeholder="Entrer votre Prénom" name="prenom" required>
+      
+          <label for="nom"><b>Nom</b></label>
+          <input class="contact_input" type="text" placeholder="Entrer votre Nom" name="nom" required>
+
+          <label for="email"><b>Email</b></label>
+          <input  type="text" placeholder="Entrer votre e-mail" name="email" required>
+
+          <textarea  name="probleme" style="width: 100%; padding: 1%; " rows="10" placeholder="comment pouvons-nous vous aidez ?"></textarea>
+
+          <button  type="submit" class="button_submit">Envoyé <i class="fas fa-paper-plane"></i></button>
+  
+        </div>
+
+      </div>
+  {% endblock %}

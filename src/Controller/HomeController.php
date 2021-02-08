@@ -56,7 +56,7 @@ class HomeController extends AbstractController
 
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
-   * @Route("/affichage-product", name="affichage-product")
+   * @Route("/admin/affichage-product", name="affichage-product")
    */
   public function affichage()
   {
@@ -99,7 +99,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/add-product", name="add-product")
+   * @Route("/admin/add-product", name="add-product")
    */
   public function addProduct(Request $request)
   {
@@ -141,7 +141,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/edit-product/{id}", name="edit-product")
+   * @Route("/admin/edit-product/{id}", name="edit-product")
    */
 
   public function editProduct($id, Request $request)
@@ -185,7 +185,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/delete-product/{id}", name="delete-product")
+   * @Route("/admin/delete-product/{id}", name="delete-product")
    */
 
   public function deleteProduct($id)
@@ -202,7 +202,7 @@ class HomeController extends AbstractController
   //-------------------------- CATEGORY ------------------------------------- 
 
   /**
-   * @Route("/affichage-category", name="affichage-category")
+   * @Route("/admin/affichage-category", name="affichage-category")
    */
   public function affichageCategory()
   {
@@ -213,7 +213,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   *@Route("/category/{id}", name="category")
+   *@Route("/admin/category/{id}", name="category")
    */
   public function category($id)
   {
@@ -225,7 +225,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/add-category", name="add-category")
+   * @Route("/admin/add-category", name="add-category")
    */
   public function addCategory(Request $request)
   {
@@ -248,7 +248,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/edit-category/{id}", name="edit-category")
+   * @Route("/admin/edit-category/{id}", name="edit-category")
    */
 
   public function editCategory($id, Request $request)
@@ -270,7 +270,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/delete-category/{id}", name="delete-category")
+   * @Route("/admin/delete-category/{id}", name="delete-category")
    */
 
   public function deleteCategory($id)
@@ -288,7 +288,7 @@ class HomeController extends AbstractController
   //-------------------------- UTILISATEURS ------------------------------------- 
 
   /**
-   * @Route("/affichage-user", name="affichage-user")
+   * @Route("/admin/affichage-user", name="affichage-user")
    */
   public function affichageUser()
   {
@@ -299,7 +299,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/delete-user/{id}", name="delete-user")
+   * @Route("/admin/delete-user/{id}", name="delete-user")
    */
 
   public function deleteUser($id)
@@ -316,7 +316,7 @@ class HomeController extends AbstractController
   //--------------------- CONTACTEZ-NOUS -------------------------------
 
    /**
-   * @Route("/affichage-contact", name="affichage-contact")
+   * @Route("/admin/affichage-contact", name="affichage-contact")
    */
   public function affichageContact()
   {
@@ -349,7 +349,7 @@ class HomeController extends AbstractController
 
 
    /**
-   * @Route("/delete-contact/{id}", name="delete-contact")
+   * @Route("/admin/delete-contact/{id}", name="delete-contact")
    */
 
   public function deleteContact($id)
@@ -367,7 +367,7 @@ class HomeController extends AbstractController
   // ------------- IMAGES ------------
 
   /**
-   * @Route("/supprime/image/{id}", name="product_delete_image", methods={"DELETE"})
+   * @Route("/admin/supprime/image/{id}", name="product_delete_image", methods={"DELETE"})
    */
   public function deleteImage(Image $images, Request $request) {
      $data = json_decode($request->getContent(), true);
