@@ -11,8 +11,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Entity\Category;
+use App\Entity\Contact;
 use App\Entity\User;
 use App\Form\CategoryType;
+use App\Form\ContactType;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -266,4 +268,55 @@ class HomeController extends AbstractController
 
     return $this->redirectToRoute('affichage-user');
   }
+
+  //--------------------- CONTACTEZ-NOUS -------------------------------
+
+   /**
+   * @Route("/affichage-contact", name="affichage-contact")
+   */
+  public function affichageContact()
+  {
+    $contacts = $this->getDoctrine()->getRepository(Contact::class)->findAll();
+    return $this->render('admin/affichagecontact.html.twig', [
+      'contacts' => $contacts
+    ]);
+  } 
+
+  /**
+   * @Route("/add-contact", name="add-contact")
+   */
+  public function addContact(Request $request)
+  {
+    $new_contact = new Contact;
+    $form = $this->createForm(ContactType::class, $new_contact);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+
+      $entityManager = $this->getDoctrine()->getManager();
+      $entityManager->persist($new_contact);
+      $entityManager->flush();
+    }
+
+    return $this->render('info/addcontact.html.twig', [
+      "form" => $form->createView()
+    ]);
+  }
+
+
+   /**
+   * @Route("/delete-contact/{id}", name="delete-contact")
+   */
+
+  public function deleteContact($id)
+  {
+    $entityManager = $this->getDoctrine()->getManager();
+    $contacts = $entityManager->getRepository(Contact::class)->find($id);
+
+    $entityManager->remove($contacts);
+    $entityManager->flush();
+
+    return $this->redirectToRoute('affichage-contact');
+  }
+
 }

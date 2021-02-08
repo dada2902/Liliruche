@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des messages {% endblock %}
+
+  
+{% block body %}
+     <h1> Listes des messages </h1>
+
+  <table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Déscription</th>
+      <th scope="col" class="centrer">Action</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      {% for contact in contacts %} 
+    <tr>
+        <th scope="row">{{ contact.id }}</th>
+            <td>{{ contact.nom }}</td> 
+            <td>{{ contact.prenom }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.description }}</td>
+            <td><a href="{{ path('delete-contact', {id : contact.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
+    </tr>
+     {% endfor %} 
+  </tbody>
+  </table>
+     
+{% endblock %}
