@@ -1,0 +1,39 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="assets/css/contact.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="container_flex">
+
+        <div class="info_contact">
+          <ul>
+            <h1>Nous contacter ?</h1>
+            <li>Adresse: 12, rue de Maupassant - 75000 Paris</li>
+            <li>Téléphone : 01 11 12 13 14</li>
+            <li>Email: liliruche@hotmail.fr</li>
+            <li>Horaires d'ouvertures : 9H30-19H00</li>
+          </ul>
+        </div>
+
+   <div class="contact_container">
+        <div class="form_contact">
+            {{ form_start(form) }}
+                <h1 class="contact">Contact</h1>
+                <div class="container_contact">
+                    {{ form_row(form.nom, {label: 'Nom' }) }}
+                    {{ form_row(form.prenom,  {label:'Prénom'}) }}
+                    {{ form_row(form.email, {label: 'Adresse Email'}) }}
+                    {{ form_row(form.description, {label: 'Déscription'}) }}
+                   
+                    <button  type="submit" class="button_submit">Envoyé <i class="fas fa-paper-plane"></i></button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

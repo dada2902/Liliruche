@@ -23,7 +23,7 @@
     <tr>
         <th scope="row">{{ product.id }}</th>
             <td>{{ product.nomDeProduit }}</td> 
-            <td>{{ product.prix }}</td>
+            <td>{{ product.prix }}€</td>
             <td>{{ product.category.nom }}</td> 
             <td>{{ product.description }}</td>
             <td><a href="{{ path('edit-product', {id : product.id}) }}" type="button" class="btn btn-warning">Modifier</a></td>
