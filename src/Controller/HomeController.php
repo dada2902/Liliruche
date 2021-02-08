@@ -12,11 +12,14 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Entity\Category;
 use App\Entity\Contact;
+use App\Entity\Image;
 use App\Entity\User;
 use App\Form\CategoryType;
 use App\Form\ContactType;
 use Exception;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class HomeController extends AbstractController
 {
@@ -105,6 +108,25 @@ class HomeController extends AbstractController
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+      // On récupère les images transmises
+      $image = $form->get('image')->getData();
+      
+      // On boucle sur les images
+      foreach($image as $images) {
+        //On génère un nouveau nom de fichier
+        $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+
+        // On copie le fichier dans le dossier uploads
+        $images->move(
+           $this->getParameter('images_directory'),
+           $fichier
+        );
+        
+        // On stock l'image dans la BDD (son titre)
+        $img = new Image();
+        $img->setTitre($fichier);
+        $new_product->addImage($img);
+      }
 
       $entityManager = $this->getDoctrine()->getManager();
       $entityManager->persist($new_product);
@@ -129,6 +151,27 @@ class HomeController extends AbstractController
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+       // On récupère les images transmises
+       $image = $form->get('image')->getData();
+      
+       // On boucle sur les images
+       foreach($image as $images) {
+         //On génère un nouveau nom de fichier
+         $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+ 
+         // On copie le fichier dans le dossier uploads
+         $images->move(
+            $this->getParameter('images_directory'),
+            $fichier
+         );
+         
+         // On stock l'image dans la BDD (son titre)
+         $img = new Image();
+         $img->setTitre($fichier);
+         $product->addImage($img);
+ 
+       }
+
       $entityManager = $this->getDoctrine()->getManager();
       $entityManager->flush();
 
@@ -136,6 +179,7 @@ class HomeController extends AbstractController
     }
 
     return $this->render('admin/addproduct.html.twig', [
+      "product" => $product,
       "form" => $form->createView()
     ]);
   }
@@ -317,6 +361,35 @@ class HomeController extends AbstractController
     $entityManager->flush();
 
     return $this->redirectToRoute('affichage-contact');
+  }
+
+
+  // ------------- IMAGES ------------
+
+  /**
+   * @Route("/supprime/image/{id}", name="product_delete_image", methods={"DELETE"})
+   */
+  public function deleteImage(Image $images, Request $request) {
+     $data = json_decode($request->getContent(), true);
+     
+     if($this->isCsrfTokenValid('delete' .$images->getId(), $data['_token'])){
+
+      // On récupére le titre de l'image
+       $titre = $images->getTitre();
+      //  On supprime le fichier
+       unlink($this->getParameter('images_directory').'/'.$titre);
+
+      //  On supprime l'entrée de la base
+       $entityManager = $this->getDoctrine()->getManager();
+       $entityManager->remove($images);
+       $entityManager->flush();
+       
+      // On répond
+       return new JsonResponse(['success' => 1]);
+     }else{
+       return new JsonResponse(['error' => 'Token Invalide'], 400);
+     }
+
   }
 
 }

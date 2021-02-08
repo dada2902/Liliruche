@@ -13,6 +13,7 @@
       <th scope="col">Titre</th>
       <th scope="col">Prix</th>
       <th scope="col">Catégorie</th>
+      <th scope="col">Images</th>
       <th scope="col">Déscription</th>
       <th scope="col" class="centrer">Action</th>
     </tr>
@@ -25,6 +26,14 @@
             <td>{{ product.nomDeProduit }}</td> 
             <td>{{ product.prix }}€</td>
             <td>{{ product.category.nom }}</td> 
+
+             {% for image in product.images %} 
+           <td>
+             <img src="{{'uploads/' ~ image.titre }}" alt="Images" width="150">
+             <a href="{{ path('product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id)}}"></a>
+          </td>
+           {% endfor %}  
+
             <td>{{ product.description }}</td>
             <td><a href="{{ path('edit-product', {id : product.id}) }}" type="button" class="btn btn-warning">Modifier</a></td>
             <td><a href="{{ path('delete-product', {id : product.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
