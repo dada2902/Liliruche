@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Site ecommerce"><!--description de la page-->
     <meta name="keywords" content="miel"> <!--Mot clef de la page-->
-    <meta name="author" content="Amine, Hanine, Lylia, Patrick"><!--Auteur du site-->
+    <meta name="author" content="Amine, Lylia, Patrick"><!--Auteur du site-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="16x16">
 
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="assets/css/lien_deco.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/cgv.css">
+    <link rel="stylesheet" href="assets/css/quisommesnous.css">
+    
     {% endblock %}
 
   </head>
@@ -51,7 +53,7 @@
               <li><a href="#">Epicerie fine</a></li>
               <li><a href="#">Bien-être</a></li>
               <li><a href="#">Coffrets Cadeaux</a></li>
-              <li><a href="#">Qui-sommes nous?</a></li>
+              <li><a href="{{ path('quisommesnous')}}">Qui-sommes nous?</a></li>
               <li><a href="{{ path('livraison')}}">Livraison et retours</a></li>
               <li><a href="{{ path('paiment')}}">Paiment sécurisé</a></li>
               <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
@@ -97,7 +99,7 @@
     </div>
     </header>
      <div class="image">
-      <a href="{{ path('index')}}"><img src="assets/img/logo.jpeg" alt="">
+      <a href="{{ path('index')}}"><img id="logo" src="assets/img/logo.jpeg" alt="">
       </a>
     </div>
     <div class="div_deco" >

@@ -45,7 +45,7 @@ class Product
     private $nomDeProduit;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="products", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="Product", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
@@ -108,32 +108,33 @@ class Product
     }
 
     /**
-     * @return Collection|Image[]
+     * @return Collection|Images[]
      */
     public function getImages(): Collection
     {
         return $this->images;
     }
 
-    public function addImage(Image $image): self
+    public function addImage(Images $image): self
     {
         if (!$this->images->contains($image)) {
             $this->images[] = $image;
-            $image->setProducts($this);
+            $image->setProduct($this);
         }
 
         return $this;
     }
 
-    public function removeImage(Image $image): self
+    public function removeImage(Images $image): self
     {
         if ($this->images->removeElement($image)) {
             // set the owning side to null (unless already changed)
-            if ($image->getProducts() === $this) {
-                $image->setProducts(null);
+            if ($image->getProduct() === $this) {
+                $image->setProduct(null);
             }
         }
 
         return $this;
     }
+   
 }
