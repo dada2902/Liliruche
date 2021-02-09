@@ -392,4 +392,15 @@ class HomeController extends AbstractController
 
   }
 
+  //  ----------------------AFFICHAGE DU COMPTE CLIENT -----------------------
+ 
+  /**
+   * @Route("/compte", name="compte")
+   */
+  public function compte()
+  {
+
+    return $this->render('info/affichagecompte.html.twig');
+  }
+
 }

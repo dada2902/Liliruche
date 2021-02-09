@@ -104,7 +104,7 @@
       <ul class="deco">
         {% if app.user %} 
         <li class="mb-3"><a><strong>Bonjour !</strong> {{ app.user.username }}</a></li>
-        <li><a href="#">Compte</a></li>
+        <li><a href="{{ path('compte')}}">Compte</a></li>
         <li><a href="{{ path('app_logout')}}">Déconnexion</a></li>
         {% else %} 
         <li><a href="{{ path('app_login')}}">Connexion</a></li>
@@ -112,4 +112,3 @@
         {% endif %} 
       </ul>
     </div>
-© 2021 GitHub, Inc.

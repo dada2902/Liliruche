@@ -1,33 +1,34 @@
 {% extends 'home.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Compte{% endblock %}
 
  {% block body %}
      <div class="container_flex">
-        <div class="info_contact">
-          <ul>
-            <h1>Nous contacter ?</h1>
-            <li>Adresse: 12, rue de Maupassant - 75000 Paris</li>
-            <li>Téléphone : 01 11 12 13 14</li>
-            <li>Email: liliruche@hotmail.fr</li>
-            <li>Horaires d'ouvertures : 9H30-19H00</li>
-          </ul>
-        </div>
-  
         <div class="contact_container">
   
-          <label   for="prenom"><b>Prénom</b></label>
-          <input   type="text" placeholder="Entrer votre Prénom" name="prenom" required>
+          <label   for="nom"><b>Nom</b></label>
+          <input   type="text" placeholder="Entrer votre Nom" name="nom" required>
       
-          <label for="nom"><b>Nom</b></label>
-          <input class="contact_input" type="text" placeholder="Entrer votre Nom" name="nom" required>
+          <label for="prénom"><b>Prénom</b></label>
+          <input class="contact_input" type="text" placeholder="Entrer votre Prénom" name="prénom" required>
 
-          <label for="email"><b>Email</b></label>
+          <label for="telephone"><b>Téléphone</b></label>
+          <input  type="text" name="telephone">
+
+         <label for="date">Date de naissance</label>
+         <input type="date" id="date" name="trip-date" value="" min="1910-01-01" max="2070-12-31">
+           <br>
+           <br>
+          <label for="email"><b>Adresse Email</b></label>
           <input  type="text" placeholder="Entrer votre e-mail" name="email" required>
+          
+          <label for="mdp"><b>Mot de passe</b></label>
+          <input  type="text" placeholder="Entrer votre mot de passe" name="mdp" required>
 
-          <textarea  name="probleme" style="width: 100%; padding: 1%; " rows="10" placeholder="comment pouvons-nous vous aidez ?"></textarea>
+          <label for="confirmation_mdp"><b>Confirmation Mot de passe*</b></label>
+          <input  type="text" placeholder="Confirmez votre mot de passe" name="mdp" required>
 
-          <button  type="submit" class="button_submit">Envoyé <i class="fas fa-paper-plane"></i></button>
+          <button  type="submit" class="button_submit">Enregistrer <i class="fas fa-paper-plane"></i></button>
   
         </div>
 
