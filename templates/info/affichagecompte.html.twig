@@ -2,31 +2,48 @@
 
 {% block title %}Compte{% endblock %}
 
- {% block body %}
-     <h1> Informations utilisateurs </h1>
+{% block stylesheets %}
 
-  <table class="table table-dark table-striped">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Email</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Nom</th>
-      <th scope="col" class="centrer">Action</th>
-    </tr>
-  </thead>
+{% endblock %}
+
+
+ {% block body %}
+
+  <h1>Informations</h1>
+
+  {# <div style="width:40%; margin: auto; padding: 20px;">
+  {{ dump(app.user) }}
+  </div> #}
+
+  <table class="container table table-dark table-striped">
+    <thead>
+      <tr>
+        {# <th scope="col">id</th> #}
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Email</th>
+        {# <th scope="col" class="centrer">Action</th> #}
+      </tr>
+    </thead>
   
-  <tbody>
+    <tbody>
+      <tr>
+          {# <th scope="row">{{ app.user.id }}</th> #}
+              <th scope="row">{{ app.user.nom }}</th>  
+              <td>{{ app.user.prenom }}</td> 
+              <td>{{ app.user.telephone }}</td>
+              <td>{{ app.user.datedenaissance }}</td>
+              <td>{{ app.user.email }}</td>
+
+              {# <td><a href="{{ path('compte-edit', {id: compte.id})}} " type="button" class="btn btn-danger">Supprimer</a></td>     #}
       
-    <tr>
-        <th scope="row">{{ id }}</th> 
-            <td>{{ email }}</td> 
-            <td>{{ prenom }}</td> 
-            <td>{{ nom }}</td>
-            <td><a href="{{ path('edit-user', {id : id}) }}" type="button" class="btn btn-danger">Modifier</a></td> 
-            <td><a href="{{ path('delete-user', {id : id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
-    </tr>
-    
-  </tbody>
+        
+            {# <td><a href="{{ path('compte-delete', {id : user.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>     #}
+      </tr>
+    </tbody>
   </table>
+
+
   {% endblock %}

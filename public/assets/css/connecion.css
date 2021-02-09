@@ -5,6 +5,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.connecter {
+  color: rgb(209, 209, 209);
+}
+
 body {
   height: auto;
   background-image: url(../img/connexion.jpg);
