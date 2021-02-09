@@ -29,7 +29,7 @@
 
              {% for image in product.images %} 
            <td>
-             <img src="{{'uploads/' ~ image.titre }}" alt="Images" width="100">
+             <img src="{{'uploads/' ~ image.titre }}" alt="Images" width="90">
              <a href="{{ path('product_delete_image', {'id': image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id)}}"></a>
           </td>
            {% endfor %}  

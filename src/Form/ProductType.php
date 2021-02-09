@@ -25,7 +25,7 @@ class ProductType extends AbstractType
                 'choice_label' => 'nom',
             ])
             // On ajoute le champs "image" dans le formulaire
-            ->add('image', FileType::class, [
+            ->add('images', FileType::class, [
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
