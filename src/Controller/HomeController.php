@@ -54,6 +54,28 @@ class HomeController extends AbstractController
     return $this->render('info/contact.html.twig');
   }
 
+  // ---------------------------  PAIMENT SECURISE  -----------------------------------------
+
+  /**
+   * @Route("/paiment", name="paiment")
+   */
+  public function paiment()
+  {
+
+    return $this->render('info/paiment.html.twig');
+  }
+
+  // ---------------------------  LIVRAISON ET RETOUR  -----------------------------------------
+
+  /**
+   * @Route("/livraison", name="livraison")
+   */
+  public function livraison()
+  {
+
+    return $this->render('info/livraison.html.twig');
+  }
+
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
    * @Route("/admin/affichage-product", name="affichage-product")
@@ -110,18 +132,18 @@ class HomeController extends AbstractController
     if ($form->isSubmitted() && $form->isValid()) {
       // On récupère les images transmises
       $image = $form->get('image')->getData();
-      
+
       // On boucle sur les images
-      foreach($image as $images) {
+      foreach ($image as $images) {
         //On génère un nouveau nom de fichier
         $fichier = md5(uniqid()) . '.' . $images->guessExtension();
 
         // On copie le fichier dans le dossier uploads
         $images->move(
-           $this->getParameter('images_directory'),
-           $fichier
+          $this->getParameter('images_directory'),
+          $fichier
         );
-        
+
         // On stock l'image dans la BDD (son titre)
         $img = new Image();
         $img->setTitre($fichier);
@@ -151,26 +173,25 @@ class HomeController extends AbstractController
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-       // On récupère les images transmises
-       $image = $form->get('image')->getData();
-      
-       // On boucle sur les images
-       foreach($image as $images) {
-         //On génère un nouveau nom de fichier
-         $fichier = md5(uniqid()) . '.' . $images->guessExtension();
- 
-         // On copie le fichier dans le dossier uploads
-         $images->move(
-            $this->getParameter('images_directory'),
-            $fichier
-         );
-         
-         // On stock l'image dans la BDD (son titre)
-         $img = new Image();
-         $img->setTitre($fichier);
-         $product->addImage($img);
- 
-       }
+      // On récupère les images transmises
+      $image = $form->get('image')->getData();
+
+      // On boucle sur les images
+      foreach ($image as $images) {
+        //On génère un nouveau nom de fichier
+        $fichier = md5(uniqid()) . '.' . $images->guessExtension();
+
+        // On copie le fichier dans le dossier uploads
+        $images->move(
+          $this->getParameter('images_directory'),
+          $fichier
+        );
+
+        // On stock l'image dans la BDD (son titre)
+        $img = new Image();
+        $img->setTitre($fichier);
+        $product->addImage($img);
+      }
 
       $entityManager = $this->getDoctrine()->getManager();
       $entityManager->flush();
@@ -315,7 +336,7 @@ class HomeController extends AbstractController
 
   //--------------------- CONTACTEZ-NOUS -------------------------------
 
-   /**
+  /**
    * @Route("/admin/affichage-contact", name="affichage-contact")
    */
   public function affichageContact()
@@ -324,7 +345,7 @@ class HomeController extends AbstractController
     return $this->render('admin/affichagecontact.html.twig', [
       'contacts' => $contacts
     ]);
-  } 
+  }
 
   /**
    * @Route("/add-contact", name="add-contact")
@@ -348,7 +369,7 @@ class HomeController extends AbstractController
   }
 
 
-   /**
+  /**
    * @Route("/admin/delete-contact/{id}", name="delete-contact")
    */
 
@@ -369,28 +390,29 @@ class HomeController extends AbstractController
   /**
    * @Route("/admin/supprime/image/{id}", name="product_delete_image", methods={"DELETE"})
    */
-  public function deleteImage(Image $images, Request $request) {
-     $data = json_decode($request->getContent(), true);
-     
-     if($this->isCsrfTokenValid('delete' .$images->getId(), $data['_token'])){
+  public function deleteImage(Image $images, Request $request)
+  {
+    $data = json_decode($request->getContent(), true);
+
+    if ($this->isCsrfTokenValid('delete' . $images->getId(), $data['_token'])) {
 
       // On récupére le titre de l'image
-       $titre = $images->getTitre();
+      $titre = $images->getTitre();
       //  On supprime le fichier
-       unlink($this->getParameter('images_directory').'/'.$titre);
+      unlink($this->getParameter('images_directory') . '/' . $titre);
 
       //  On supprime l'entrée de la base
-       $entityManager = $this->getDoctrine()->getManager();
-       $entityManager->remove($images);
-       $entityManager->flush();
-       
-      // On répond
-       return new JsonResponse(['success' => 1]);
-     }else{
-       return new JsonResponse(['error' => 'Token Invalide'], 400);
-     }
+      $entityManager = $this->getDoctrine()->getManager();
+      $entityManager->remove($images);
+      $entityManager->flush();
 
+      // On répond
+      return new JsonResponse(['success' => 1]);
+    } else {
+      return new JsonResponse(['error' => 'Token Invalide'], 400);
+    }
   }
+
 
   //  ----------------------AFFICHAGE DU COMPTE CLIENT -----------------------
  
@@ -402,5 +424,6 @@ class HomeController extends AbstractController
 
     return $this->render('info/affichagecompte.html.twig');
   }
+
 
 }

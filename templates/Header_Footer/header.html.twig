@@ -6,7 +6,6 @@
     <meta name="keywords" content="miel"> <!--Mot clef de la page-->
     <meta name="author" content="Amine, Hanine, Lylia, Patrick"><!--Auteur du site-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="icon" href="assets/img/icon.png" type="image/png" sizes="16x16">
 
 
@@ -52,8 +51,8 @@
               <li><a href="#">Bien-être</a></li>
               <li><a href="#">Coffrets Cadeaux</a></li>
               <li><a href="#">Qui-sommes nous?</a></li>
-              <li><a href="#">Livraison et retours</a></li>
-              <li><a href="#">Paiment sécurisé</a></li>
+              <li><a href="{{ path('livraison')}}">Livraison et retours</a></li>
+              <li><a href="{{ path('paiment')}}">Paiment sécurisé</a></li>
               <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
               <li><a href="{{ path('add-contact')}}">Contact</a></li>             
                {% endif %} 
@@ -72,7 +71,7 @@
             <div class="modal-content_search">
               <span class="close_search">&times;</span>
             
-              <form action="">
+              <form action="#">
                 <input type="search" id="search_bar">
               </form>
               
