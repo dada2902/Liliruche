@@ -412,4 +412,18 @@ class HomeController extends AbstractController
       return new JsonResponse(['error' => 'Token Invalide'], 400);
     }
   }
+
+
+  //  ----------------------AFFICHAGE DU COMPTE CLIENT -----------------------
+ 
+  /**
+   * @Route("/compte", name="compte")
+   */
+  public function compte()
+  {
+
+    return $this->render('info/affichagecompte.html.twig');
+  }
+
+
 }
