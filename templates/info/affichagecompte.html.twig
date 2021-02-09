@@ -3,34 +3,30 @@
 {% block title %}Compte{% endblock %}
 
  {% block body %}
-     <div class="container_flex">
-        <div class="contact_container">
+     <h1> Informations utilisateurs </h1>
+
+  <table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Email</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+      <th scope="col" class="centrer">Action</th>
+    </tr>
+  </thead>
   
-          <label   for="nom"><b>Nom</b></label>
-          <input   type="text" placeholder="Entrer votre Nom" name="nom" required>
+  <tbody>
       
-          <label for="prénom"><b>Prénom</b></label>
-          <input class="contact_input" type="text" placeholder="Entrer votre Prénom" name="prénom" required>
-
-          <label for="telephone"><b>Téléphone</b></label>
-          <input  type="text" name="telephone">
-
-         <label for="date">Date de naissance</label>
-         <input type="date" id="date" name="trip-date" value="" min="1910-01-01" max="2070-12-31">
-           <br>
-           <br>
-          <label for="email"><b>Adresse Email</b></label>
-          <input  type="text" placeholder="Entrer votre e-mail" name="email" required>
-          
-          <label for="mdp"><b>Mot de passe</b></label>
-          <input  type="text" placeholder="Entrer votre mot de passe" name="mdp" required>
-
-          <label for="confirmation_mdp"><b>Confirmation Mot de passe*</b></label>
-          <input  type="text" placeholder="Confirmez votre mot de passe" name="mdp" required>
-
-          <button  type="submit" class="button_submit">Enregistrer <i class="fas fa-paper-plane"></i></button>
-  
-        </div>
-
-      </div>
+    <tr>
+        <th scope="row">{{ id }}</th> 
+            <td>{{ email }}</td> 
+            <td>{{ prenom }}</td> 
+            <td>{{ nom }}</td>
+            <td><a href="{{ path('edit-user', {id : id}) }}" type="button" class="btn btn-danger">Modifier</a></td> 
+            <td><a href="{{ path('delete-user', {id : id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
+    </tr>
+    
+  </tbody>
+  </table>
   {% endblock %}

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ImageRepository;
+use App\Repository\ImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ImageRepository::class)
+ * @ORM\Entity(repositoryClass=ImagesRepository::class)
  */
-class Image
+class Images
 {
     /**
      * @ORM\Id
@@ -26,7 +26,7 @@ class Image
      * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $products;
+    private $Product;
 
     public function getId(): ?int
     {
@@ -45,14 +45,14 @@ class Image
         return $this;
     }
 
-    public function getProducts(): ?Product
+    public function getProduct(): ?Product
     {
-        return $this->products;
+        return $this->Product;
     }
 
-    public function setProducts(?Product $products): self
+    public function setProduct(?Product $Product): self
     {
-        $this->products = $products;
+        $this->Product = $Product;
 
         return $this;
     }
