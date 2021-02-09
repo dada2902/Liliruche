@@ -78,7 +78,7 @@ class HomeController extends AbstractController
 
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
-   * @Route("/admin/affichage-product", name="affichage-product")
+   * @Route("/affichage-product", name="affichage-product")
    */
   public function affichage()
   {
@@ -415,15 +415,14 @@ class HomeController extends AbstractController
 
 
   //  ----------------------AFFICHAGE DU COMPTE CLIENT -----------------------
- 
-  /**
-   * @Route("/compte", name="compte")
-   */
-  public function compte()
-  {
 
+
+  /**
+   *@Route("/compte", name="compte")
+   */
+  public function user()
+  {
+    // $user = $this->getDoctrine()->getRepository(User::class)->find();
     return $this->render('info/affichagecompte.html.twig');
   }
-
-
 }

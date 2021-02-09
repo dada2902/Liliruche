@@ -2,35 +2,46 @@
 
 {% block title %}Compte{% endblock %}
 
+{% block stylesheets %}
+
+{% endblock %}
+
+
  {% block body %}
-     <div class="container_flex">
-        <div class="contact_container">
+  <h1>Informations</h1>
+
+  {# <div style="width:40%; margin: auto; padding: 20px;">
+  {{ dump(app.user) }}
+  </div> #}
+
+  <table class="container table table-dark table-striped">
+    <thead>
+      <tr>
+        {# <th scope="col">id</th> #}
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Email</th>
+        {# <th scope="col" class="centrer">Action</th> #}
+      </tr>
+    </thead>
   
-          <label   for="nom"><b>Nom</b></label>
-          <input   type="text" placeholder="Entrer votre Nom" name="nom" required>
+    <tbody>
+      <tr>
+          {# <th scope="row">{{ app.user.id }}</th> #}
+              <th scope="row">{{ app.user.nom }}</th>  
+              <td>{{ app.user.prenom }}</td> 
+              <td>{{ app.user.telephone }}</td>
+              <td>{{ app.user.datedenaissance }}</td>
+              <td>{{ app.user.email }}</td>
+
+              {# <td><a href="{{ path('compte-edit', {id: compte.id})}} " type="button" class="btn btn-danger">Supprimer</a></td>     #}
       
-          <label for="prénom"><b>Prénom</b></label>
-          <input class="contact_input" type="text" placeholder="Entrer votre Prénom" name="prénom" required>
+        
+            {# <td><a href="{{ path('compte-delete', {id : user.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>     #}
+      </tr>
+    </tbody>
+  </table>
 
-          <label for="telephone"><b>Téléphone</b></label>
-          <input  type="text" name="telephone">
-
-         <label for="date">Date de naissance</label>
-         <input type="date" id="date" name="trip-date" value="" min="1910-01-01" max="2070-12-31">
-           <br>
-           <br>
-          <label for="email"><b>Adresse Email</b></label>
-          <input  type="text" placeholder="Entrer votre e-mail" name="email" required>
-          
-          <label for="mdp"><b>Mot de passe</b></label>
-          <input  type="text" placeholder="Entrer votre mot de passe" name="mdp" required>
-
-          <label for="confirmation_mdp"><b>Confirmation Mot de passe*</b></label>
-          <input  type="text" placeholder="Confirmez votre mot de passe" name="mdp" required>
-
-          <button  type="submit" class="button_submit">Enregistrer <i class="fas fa-paper-plane"></i></button>
-  
-        </div>
-
-      </div>
   {% endblock %}

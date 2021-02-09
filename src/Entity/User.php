@@ -56,7 +56,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date_de_naissance;
+    private $datedenaissance;
 
     public function getId(): ?int
     {
@@ -174,20 +174,13 @@ class User implements UserInterface
 
     public function getDateDeNaissance(): ?\DateTimeInterface
     {
-        return $this->date_de_naissance;
+        return $this->datedenaissance;
     }
 
-    public function setDateDeNaissance(?\DateTimeInterface $date_de_naissance): self
+    public function setDateDeNaissance(?\DateTimeInterface $datedenaissance): self
     {
-        $this->date_de_naissance = $date_de_naissance;
+        $this->datedenaissance = $datedenaissance;
 
         return $this;
     }
-
-   
-   
-
-    
-   
-  
 }

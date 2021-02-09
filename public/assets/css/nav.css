@@ -32,6 +32,12 @@ nav {
   color: rgb(209, 209, 209);
 }
 
+.web_name:hover {
+  text-decoration: none;
+  color: white;
+  text-decoration: none;
+}
+
 .bee {
   background-image: url(../img/bee.jpg);
   background-size: cover;

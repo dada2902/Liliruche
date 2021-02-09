@@ -21,7 +21,7 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('date_de_naissance')
+            ->add('datedenaissance')
             ->add('email')
             ->add('password', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
             ]);
     }
 
- 
+
 
 
     public function configureOptions(OptionsResolver $resolver)
