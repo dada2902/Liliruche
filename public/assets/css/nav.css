@@ -1,10 +1,11 @@
-img {
+#logo {
   position: absolute;
   top: 32%;
   left: 40%;
   width: 20%;
   height: 40%;
   z-index: 0;
+  border-radius: 20px;
 }
 
 nav {
