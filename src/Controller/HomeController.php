@@ -65,6 +65,17 @@ class HomeController extends AbstractController
     return $this->render('info/paiment.html.twig');
   }
 
+    // ---------------------------  QUI SOMMES-NOUS ?  -----------------------------------------
+
+  /**
+   * @Route("/quisommesnous", name="quisommesnous")
+   */
+  public function quisommesnous()
+  {
+
+    return $this->render('info/quisommesnous.html.twig');
+  }
+
   // ---------------------------  LIVRAISON ET RETOUR  -----------------------------------------
 
   /**

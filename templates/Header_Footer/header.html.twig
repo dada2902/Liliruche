@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/lien_deco.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/cgv.css">
+    <link rel="stylesheet" href="assets/css/quisommesnous.css">
+    
     {% endblock %}
 
   </head>
@@ -50,7 +52,7 @@
               <li><a href="#">Epicerie fine</a></li>
               <li><a href="#">Bien-être</a></li>
               <li><a href="#">Coffrets Cadeaux</a></li>
-              <li><a href="#">Qui-sommes nous?</a></li>
+              <li><a href="{{ path('quisommesnous')}}">Qui-sommes nous?</a></li>
               <li><a href="{{ path('livraison')}}">Livraison et retours</a></li>
               <li><a href="{{ path('paiment')}}">Paiment sécurisé</a></li>
               <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
