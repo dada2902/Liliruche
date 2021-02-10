@@ -24,7 +24,7 @@
         <th scope="col">Téléphone</th>
         <th scope="col">Date de naissance</th>
         <th scope="col">Email</th>
-        {# <th scope="col" class="centrer">Action</th> #}
+        <th scope="col" class="centrer">Action</th> 
       </tr>
     </thead>
   
@@ -34,13 +34,11 @@
               <th scope="row">{{ app.user.nom }}</th>  
               <td>{{ app.user.prenom }}</td> 
               <td>{{ app.user.telephone }}</td>
-              <td>{{ app.user.datedenaissance }}</td>
+              <td>{{ app.user.datedenaissance }}</td> 
               <td>{{ app.user.email }}</td>
 
-              {# <td><a href="{{ path('compte-edit', {id: compte.id})}} " type="button" class="btn btn-danger">Supprimer</a></td>     #}
-      
-        
-            {# <td><a href="{{ path('compte-delete', {id : user.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>     #}
+              <td><a href="{{ path('compte', {id: app.user.id})}} " type="button" class="btn btn-warning">Modifier</a></td>       
+              <td><a href="{{ path('compte', {id : app.user.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>     
       </tr>
     </tbody>
   </table>
