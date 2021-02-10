@@ -1,0 +1,37 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Modifier Compte Utilisateur{% endblock %}
+
+ {% block body %}
+
+
+  <h1 style="text-align: center;">Modifier mon Compte</h1>
+
+  <div class="container">
+    {{ form_start(form) }}
+     
+       <div class="row mt-4">
+           <div class="col">
+             {{ form_row(form.nom, {label: 'Nom' })}}
+           </div>
+       </div>
+       <div class="row">
+          <div class="col">
+            {{ form_row(form.prenom, {label: 'Prénom' })}}
+          </div>
+          <div class="col">
+            {{ form_row(form.email, {label: 'Email' }) }}
+          </div>
+          <div class="col">
+            {{ form_row(form.telephone, {label: 'Téléphone' }) }}
+          </div>
+           <div class="col">
+            {{ form_row(form.datedenaissance, {label: 'Date de naissance' }) }}
+            
+          </div>
+          
+       </div>
+{{ form_end(form) }}
+</div>
+
+ {% endblock %}
