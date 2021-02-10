@@ -1,0 +1,21 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Détaits{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="card mt-4">
+    {% for image in product.images %} 
+        <img style="width: 25rem;" src="{{'uploads/' ~ image.titre }}" alt="">
+    {% endfor %}  
+
+        <div class="card-body">
+            <h3 class="card-title">{{ product.nomDeProduit }}</h3>
+            <h4>{{ product.prix ~ ' €'}}</h4>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">{{ product.category.nom }}</p>
+        </div>
+    </div>
+</div>   
+
+{% endblock %}

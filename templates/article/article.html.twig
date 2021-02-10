@@ -1,0 +1,28 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+<div class="container_article">
+
+    {% for product in products %} 
+
+    <div class="shop-item">
+        <article>
+            {% for image in product.images %} 
+                <figure class="container-img">
+                    <a href=""><img src="{{'uploads/' ~ image.titre }}" alt=""></a>
+                </figure>
+            {% endfor %}  
+            <div class="product-infos">
+                <h3 class="nom_prix1">{{ product.nomDeProduit }}</h3>
+                <h4 class="nom_prix2">{{ product.prix }}€ TTC</h4>
+            </div>
+        </article>
+    </div>
+
+    {% endfor %}  
+
+</div>
+{% endblock %}
