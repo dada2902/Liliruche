@@ -37,7 +37,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/article/{id}", name="article")
+   * @Route("/{id}", name="article")
    */
   public function showArticle($id): Response
   {
@@ -58,7 +58,7 @@ class HomeController extends AbstractController
   // ---------------------------  MENTIONS LEGALS CGV  -----------------------------------------
 
   /**
-   * @Route("/cgv", name="cgv")
+   * @Route("/info/cgv", name="cgv")
    */
   public function cgv()
   {
@@ -69,7 +69,7 @@ class HomeController extends AbstractController
   // ---------------------------  CONTACT  -----------------------------------------
 
   /**
-   * @Route("/contact", name="contact")
+   * @Route("/info/contact", name="contact")
    */
   public function contact()
   {
@@ -80,7 +80,7 @@ class HomeController extends AbstractController
   // ---------------------------  PAIMENT SECURISE  -----------------------------------------
 
   /**
-   * @Route("/paiment", name="paiment")
+   * @Route("/info/paiment", name="paiment")
    */
   public function paiment()
   {
@@ -91,7 +91,7 @@ class HomeController extends AbstractController
   // ---------------------------  QUI SOMMES-NOUS ?  -----------------------------------------
 
   /**
-   * @Route("/quisommesnous", name="quisommesnous")
+   * @Route("/info/quisommesnous", name="quisommesnous")
    */
   public function quisommesnous()
   {
@@ -102,7 +102,7 @@ class HomeController extends AbstractController
   // ---------------------------  LIVRAISON ET RETOUR  -----------------------------------------
 
   /**
-   * @Route("/livraison", name="livraison")
+   * @Route("/info/livraison", name="livraison")
    */
   public function livraison()
   {
@@ -121,11 +121,6 @@ class HomeController extends AbstractController
       'products' => $products
     ]);
   }
-
-
-
-
-
 
 
   /**
@@ -356,7 +351,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/add-contact", name="add-contact")
+   * @Route("/info/add-contact", name="add-contact")
    */
   public function addContact(Request $request)
   {
@@ -426,7 +421,7 @@ class HomeController extends AbstractController
 
 
   /**
-   *@Route("/compte", name="compte")
+   *@Route("/info/compte", name="compte")
    */
   public function user()
   {
