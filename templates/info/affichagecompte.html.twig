@@ -9,7 +9,7 @@
 
  {% block body %}
 
-  <h1>Informations</h1>
+  <h1 style="text-align: center;">Informations</h1>
 
   {# <div style="width:40%; margin: auto; padding: 20px;">
   {{ dump(app.user) }}
@@ -18,27 +18,28 @@
   <table class="container table table-dark table-striped">
     <thead>
       <tr>
-        {# <th scope="col">id</th> #}
+      
         <th scope="col">Nom</th>
         <th scope="col">Prénom</th>
         <th scope="col">Téléphone</th>
         <th scope="col">Date de naissance</th>
         <th scope="col">Email</th>
-        <th scope="col" class="centrer">Action</th> 
+        <th scope="col" class="centrer" style="text-align: center;">Action</th> 
       </tr>
     </thead>
   
     <tbody>
       <tr>
-          {# <th scope="row">{{ app.user.id }}</th> #}
               <th scope="row">{{ app.user.nom }}</th>  
               <td>{{ app.user.prenom }}</td> 
               <td>{{ app.user.telephone }}</td>
               <td>{{ app.user.datedenaissance }}</td> 
               <td>{{ app.user.email }}</td>
 
-              <td><a href="{{ path('compte', {id: app.user.id})}} " type="button" class="btn btn-warning">Modifier</a></td>       
-              <td><a href="{{ path('compte', {id : app.user.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>     
+              <td style="text-align: center;">
+              <a href="{{ path('edit-compte', {id: app.user.id})}} " type="button" class="btn btn-warning">Modifier</a>       
+              <a href="{{ path('delete-compte', {id : app.user.id}) }}" type="button" class="btn btn-danger">Supprimer</a>
+              </td>     
       </tr>
     </tbody>
   </table>
