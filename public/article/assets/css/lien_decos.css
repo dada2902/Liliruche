@@ -1,0 +1,48 @@
+.div_deco {
+  padding: 20px;
+  position: absolute;
+  top: 10%;
+  right: 0%;
+  z-index: 0;
+}
+.deco {
+  display: flex;
+  list-style: none;
+}
+
+.deco li a {
+  text-decoration: none;
+  color: rgb(209, 209, 209);
+  padding: 15px;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1074px) {
+  .div_deco {
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    z-index: 0;
+  }
+  .deco li a {
+    text-decoration: none;
+    color: rgb(209, 209, 209);
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 758px) {
+  .div_deco {
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    z-index: 0;
+  }
+  .deco li a {
+    text-decoration: none;
+    color: rgb(209, 209, 209);
+    padding: 15px;
+  }
+}

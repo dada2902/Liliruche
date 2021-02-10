@@ -37,7 +37,7 @@ class HomeController extends AbstractController
   }
 
   /**
-   * @Route("/{id}", name="article")
+   * @Route("/article/{id}", name="article")
    */
   public function showArticle($id): Response
   {

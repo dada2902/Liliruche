@@ -1,0 +1,29 @@
+#cgv .container_cgu {
+  width: 90%;
+  padding: 5%;
+  margin: auto;
+}
+
+#cgv p {
+  padding: 1%;
+}
+
+#cgv h1 {
+  text-align: center;
+  padding: 50px;
+  text-shadow: 1px 1px 2px #ffcc00;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+#cgv h2 {
+  padding: 20px;
+}
+
+#cgv .cgv_div_h2{
+  padding: 0rem 8rem 8rem 8rem;
+}
+
+#cgv .ml {
+  padding: 20px;
+  font-size: 23px;
+}

@@ -1,0 +1,191 @@
+.logo {
+  color: rgb(209, 209, 209);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 8%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+}
+
+#logo {
+  width: 60px;
+  border-radius: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  background-color: #7b7171;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.web_name {
+  text-decoration: none;
+  color: rgb(209, 209, 209);
+}
+
+.web_name:hover {
+  text-decoration: none;
+  color: white;
+  text-decoration: none;
+}
+
+.bee {
+  background-image: url(../img/bee.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.panier_search {
+  display: flex;
+  justify-content: space-evenly;
+  width: 10%;
+}
+
+/* ---------------------RESPONSIVE NAV----------------------- */
+
+@media screen and (max-width: 1074px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #7b7171;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .logo {
+    color: rgb(209, 209, 209);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+  }
+
+  #logo {
+    display: none;
+    width: 60px;
+    border-radius: 100%;
+  }
+
+  .bee {
+    background-image: url(../img/bee.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .panier_search {
+    display: flex;
+    justify-content: space-evenly;
+    width: 10%;
+    margin-right: 2%;
+  }
+
+  #myBtn_menu {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    margin-left: 2%;
+    background-color: rgba(90, 83, 83, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+
+  #myBtn_panier {
+    /* padding: 10px; */
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    margin-right: 1%;
+    background-color: rgba(90, 83, 83, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+}
+@media screen and (max-width: 758px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #7b7171;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .logo {
+    color: rgb(209, 209, 209);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+  }
+
+  #logo {
+    display: none;
+    width: 60px;
+    border-radius: 100%;
+  }
+
+  .bee {
+    background-image: url(../img/miel.webp);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .panier_search {
+    display: flex;
+    justify-content: space-evenly;
+    width: 15%;
+    margin-right: 4%;
+  }
+
+  #myBtn_menu {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    margin-left: 2%;
+    background-color: rgba(90, 83, 83, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+
+  #myBtn_panier {
+    /* padding: 10px; */
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    margin: 1%;
+    background-color: rgba(90, 83, 83, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+}
