@@ -6,10 +6,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
-use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
-use App\Form\ProductType;
 use App\Entity\Category;
 use App\Entity\Contact;
 use App\Entity\Images;
@@ -19,106 +16,40 @@ use App\Form\CategoryType;
 use App\Form\ContactType;
 use Doctrine\Persistence\ObjectManager;
 use Exception;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
-
 
 class HomeController extends AbstractController
 {
+
   /**
    * @Route("/", name="index")
    */
-  public function index()
-  {
-
-    return $this->render('home.html.twig');
-  }
-
-  // ---------------------------  MENTIONS LEGALS CGV  -----------------------------------------
-
-  /**
-   * @Route("/cgv", name="cgv")
-   */
-  public function cgv()
-  {
-
-    return $this->render('info/cgv.html.twig');
-  }
-
-  // ---------------------------  CONTACT  -----------------------------------------
-
-  /**
-   * @Route("/contact", name="contact")
-   */
-  public function contact()
-  {
-
-    return $this->render('info/contact.html.twig');
-  }
-
-  // ---------------------------  PAIMENT SECURISE  -----------------------------------------
-
-  /**
-   * @Route("/paiment", name="paiment")
-   */
-  public function paiment()
-  {
-
-    return $this->render('info/paiment.html.twig');
-  }
-
-    // ---------------------------  QUI SOMMES-NOUS ?  -----------------------------------------
-
-  /**
-   * @Route("/quisommesnous", name="quisommesnous")
-   */
-  public function quisommesnous()
-  {
-
-    return $this->render('info/quisommesnous.html.twig');
-  }
-
-  // ---------------------------  LIVRAISON ET RETOUR  -----------------------------------------
-
-  /**
-   * @Route("/livraison", name="livraison")
-   */
-  public function livraison()
-  {
-
-    return $this->render('info/livraison.html.twig');
-  }
-
-  // ---------------------------  PRODUCT  -----------------------------------------
-  /**
-   * @Route("/affichage-product", name="affichage-product")
-   */
-  public function affichage()
+  public function article()
   {
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-    return $this->render('admin/affichageproduct.html.twig', [
+    return $this->render('/home.html.twig', [
       'products' => $products
     ]);
   }
 
-
   /**
-   * @Route("/show-product/{id}", name="show-product")
+   * @Route("/{id}", name="article")
    */
-  public function show($id): Response
+  public function showArticle($id): Response
   {
-    $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+    $categories = $this->getDoctrine()->getRepository(Category::class)->find($id);
     $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
 
     if (!$product) {
       throw new Exception("Erreur : Il n'y a aucun produit avec l'id : $id");
     }
 
-    return $this->render('admin/detailproduct.html.twig', [
+    return $this->render('detailproduct.html.twig', [
+      "id" => $id,
       'categories' => $categories,
       'product' => $product
     ]);
   }
+
 
 
   /**
@@ -482,6 +413,7 @@ class HomeController extends AbstractController
     }
     return $this->redirectToRoute('index');
  }
+
 
 
 
