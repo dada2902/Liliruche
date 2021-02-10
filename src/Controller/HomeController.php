@@ -16,6 +16,7 @@ use App\Entity\Images;
 use App\Entity\User;
 use App\Form\CategoryType;
 use App\Form\ContactType;
+use Doctrine\Persistence\ObjectManager;
 use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -436,4 +437,9 @@ class HomeController extends AbstractController
     // $user = $this->getDoctrine()->getRepository(User::class)->find();
     return $this->render('info/affichagecompte.html.twig');
   }
+   
+   
+  
+ 
+
 }
