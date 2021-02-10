@@ -14,6 +14,20 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductController extends AbstractController
 {
     // ---------------------------  PRODUCT  -----------------------------------------
+
+
+    /**
+     *@Route("/product/{id}", name="product")
+     */
+    public function product($id)
+    {
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+        return $this->render('admin/addproduct.html.twig', [
+            "id" => $id,
+            "product" => $product
+        ]);
+    }
+
     /**
      * @Route("/info/affichage-product", name="affichage-product")
      */
