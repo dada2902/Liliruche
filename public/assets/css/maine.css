@@ -3,6 +3,10 @@ main {
   height: auto;
 }
 
+.fond_article {
+  background-image: url(../img/fond-blanc-bois.jpg);
+}
+
 #main_list {
   display: flex;
   justify-content: space-evenly;

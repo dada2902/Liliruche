@@ -24,13 +24,35 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
+
   /**
    * @Route("/", name="index")
    */
-  public function index()
+  public function article()
   {
+    $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+    return $this->render('/home.html.twig', [
+      'products' => $products
+    ]);
+  }
 
-    return $this->render('home.html.twig');
+  /**
+   * @Route("/{id}", name="article")
+   */
+  public function showArticle($id): Response
+  {
+    $categories = $this->getDoctrine()->getRepository(Category::class)->find($id);
+    $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+
+    if (!$product) {
+      throw new Exception("Erreur : Il n'y a aucun produit avec l'id : $id");
+    }
+
+    return $this->render('detailproduct.html.twig', [
+      "id" => $id,
+      'categories' => $categories,
+      'product' => $product
+    ]);
   }
 
   // ---------------------------  MENTIONS LEGALS CGV  -----------------------------------------
@@ -66,7 +88,7 @@ class HomeController extends AbstractController
     return $this->render('info/paiment.html.twig');
   }
 
-    // ---------------------------  QUI SOMMES-NOUS ?  -----------------------------------------
+  // ---------------------------  QUI SOMMES-NOUS ?  -----------------------------------------
 
   /**
    * @Route("/quisommesnous", name="quisommesnous")
@@ -101,36 +123,10 @@ class HomeController extends AbstractController
   }
 
 
-  /**
-   * @Route("/show-product/{id}", name="show-product")
-   */
-  public function show($id): Response
-  {
-    $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-    $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
-
-    if (!$product) {
-      throw new Exception("Erreur : Il n'y a aucun produit avec l'id : $id");
-    }
-
-    return $this->render('admin/detailproduct.html.twig', [
-      'categories' => $categories,
-      'product' => $product
-    ]);
-  }
 
 
-  /**
-   *@Route("/product/{id}", name="product")
-   */
-  public function product($id)
-  {
-    $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
-    return $this->render('admin/addproduct.html.twig', [
-      "id" => $id,
-      "product" => $product
-    ]);
-  }
+
+
 
   /**
    * @Route("/admin/add-product", name="add-product")
@@ -143,23 +139,23 @@ class HomeController extends AbstractController
 
     if ($form->isSubmitted() && $form->isValid()) {
       // On récupère les images transmises
-       $images = $form->get('images')->getData();
+      $images = $form->get('images')->getData();
 
       // On boucle sur les images
       foreach ($images as $image) {
-      //On génère un nouveau nom de fichier
-      $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+        //On génère un nouveau nom de fichier
+        $fichier = md5(uniqid()) . '.' . $image->guessExtension();
 
-      // On copie le fichier dans le dossier uploads
-      $image->move(
-      $this->getParameter('images_directory'),
-      $fichier
-      );
+        // On copie le fichier dans le dossier uploads
+        $image->move(
+          $this->getParameter('images_directory'),
+          $fichier
+        );
 
-      // On stock l'image dans la BDD (son titre)
-      $img = new Images();
-      $img->setTitre($fichier);
-      $new_product->addImage($img);
+        // On stock l'image dans la BDD (son titre)
+        $img = new Images();
+        $img->setTitre($fichier);
+        $new_product->addImage($img);
       }
 
       $entityManager = $this->getDoctrine()->getManager();
@@ -188,21 +184,21 @@ class HomeController extends AbstractController
       // On récupère les images transmises
       $images = $form->get('images')->getData();
 
-       // On boucle sur les images
+      // On boucle sur les images
       foreach ($images as $image) {
-      //On génère un nouveau nom de fichier
-      $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+        //On génère un nouveau nom de fichier
+        $fichier = md5(uniqid()) . '.' . $image->guessExtension();
 
-      // On copie le fichier dans le dossier uploads
-       $image->move(
-      $this->getParameter('images_directory'),
-      $fichier
-      );
+        // On copie le fichier dans le dossier uploads
+        $image->move(
+          $this->getParameter('images_directory'),
+          $fichier
+        );
 
-      // On stock l'image dans la BDD (son titre)
-      $img = new Images();
-      $img->setTitre($fichier);
-      $product->addImage($img);
+        // On stock l'image dans la BDD (son titre)
+        $img = new Images();
+        $img->setTitre($fichier);
+        $product->addImage($img);
       }
 
       $entityManager = $this->getDoctrine()->getManager();
@@ -404,25 +400,25 @@ class HomeController extends AbstractController
    */
   public function deleteImage(Images $image, Request $request)
   {
-  $data = json_decode($request->getContent(), true);
+    $data = json_decode($request->getContent(), true);
 
-  if ($this->isCsrfTokenValid('delete' . $image->getId(), $data['_token'])) {
+    if ($this->isCsrfTokenValid('delete' . $image->getId(), $data['_token'])) {
 
-  // On récupére le titre de l'image
-  $titre = $image->getTitre();
-  //  On supprime le fichier
-  unlink($this->getParameter('images_directory') . '/' . $titre);
+      // On récupére le titre de l'image
+      $titre = $image->getTitre();
+      //  On supprime le fichier
+      unlink($this->getParameter('images_directory') . '/' . $titre);
 
-  //  On supprime l'entrée de la base
-  $entityManager = $this->getDoctrine()->getManager();
-  $entityManager->remove($image);
-  $entityManager->flush();
+      //  On supprime l'entrée de la base
+      $entityManager = $this->getDoctrine()->getManager();
+      $entityManager->remove($image);
+      $entityManager->flush();
 
-  // On répond
-  return new JsonResponse(['success' => 1]);
-  } else {
-  return new JsonResponse(['error' => 'Token Invalide'], 400);
-  }
+      // On répond
+      return new JsonResponse(['success' => 1]);
+    } else {
+      return new JsonResponse(['error' => 'Token Invalide'], 400);
+    }
   }
 
 
@@ -437,9 +433,4 @@ class HomeController extends AbstractController
     // $user = $this->getDoctrine()->getRepository(User::class)->find();
     return $this->render('info/affichagecompte.html.twig');
   }
-   
-   
-  
- 
-
 }

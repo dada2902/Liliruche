@@ -1,21 +1,41 @@
 {% include 'Header_Footer/header.html.twig' %}
 
- {% block body %}
-    <main>
-      <div class="container_main">
-          <form action="">
-              <ul id="main_list">
-                  <li><a href="">Miels</a></li>
-                  <li><a href="">Epicerie fine</a></li>
-                  <li><a href="">Bien-être</a></li>
-                  <li><a href="">Coffrets Cadeaux</a></li>
-        
-              </ul>
-          </form>
-      </div>
-      <div>
-      </div>
-    </main>
+{% block body %}
+<main class="fond_article">
+    <div class="container_main">
+        <form action="">
+            <ul id="main_list">
+                <li><a href="">Miels</a></li>
+                <li><a href="">Epicerie fine</a></li>
+                <li><a href="">Bien-être</a></li>
+                <li><a href="">Coffrets Cadeaux</a></li>
+            </ul>
+        </form>
+    </div>
+      
+    <div class="container_article">
+
+        {% for product in products %} 
+
+            <div class="shop-item">
+                <article>
+                    {% for image in product.images %} 
+                        <figure class="container-img">
+                            <img src="{{'uploads/' ~ image.titre }}" alt="">
+                        </figure>
+                    {% endfor %}  
+                    <div class="product-infos">
+                        <h3 class="nom_prix1"><a href="{{ path('article', {id:product.id})}}">{{ product.nomDeProduit }}</a></h3>
+                        <h4 class="nom_prix2">{{ product.prix }}€ TTC</h4>
+                    </div>
+                </article>
+            </div>
+
+        {% endfor %}  
+
+    </div>
+      
+</main>
  {% endblock %}
 
  {% include 'Header_Footer/footer.html.twig' %}
