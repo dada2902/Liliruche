@@ -16,6 +16,8 @@ use App\Form\CategoryType;
 use App\Form\ContactType;
 use Doctrine\Persistence\ObjectManager;
 use Exception;
+use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends AbstractController
 {
