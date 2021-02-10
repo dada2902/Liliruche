@@ -30,6 +30,7 @@ nav {
 .web_name {
   text-decoration: none;
   color: rgb(209, 209, 209);
+  font-family: 'Hanalei', cursive;
 }
 
 .web_name:hover {
