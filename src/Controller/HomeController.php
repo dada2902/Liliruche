@@ -112,7 +112,7 @@ class HomeController extends AbstractController
 
   // ---------------------------  PRODUCT  -----------------------------------------
   /**
-   * @Route("/affichage-product", name="affichage-product")
+   * @Route("/info/affichage-product", name="affichage-product")
    */
   public function affichage()
   {
