@@ -54,7 +54,7 @@ class User implements UserInterface
     private $telephone;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $datedenaissance;
 
@@ -172,12 +172,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateDeNaissance(): ?\DateTimeInterface
+    public function getDateDeNaissance(): ?string
     {
         return $this->datedenaissance;
     }
 
-    public function setDateDeNaissance(?\DateTimeInterface $datedenaissance): self
+    public function setDateDeNaissance(?string $datedenaissance): self
     {
         $this->datedenaissance = $datedenaissance;
 
