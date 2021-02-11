@@ -28,7 +28,7 @@
                         <h3 class="nom_prix1">{{ product.nomDeProduit }}</a></h3>
                             <div class="price_cart">
                                 <h4 class="nom_prix2">{{ product.prix }}€ TTC</h4>
-                                <button class="add_to_cart" type="button"><i class="fas fa-cart-plus"></i> </button>
+                                <button class="add_to_cart" type="button"><a href="{{ path('cart_add', {'id': item.product.id}) }}"><i class="fas fa-cart-plus"></i></a></button>
                             </div>
                     </div>
                 </article>
