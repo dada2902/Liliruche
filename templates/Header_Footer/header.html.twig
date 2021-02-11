@@ -45,6 +45,15 @@
             <ul class="nav-link_menu">
 
                 {% if is_granted('ROLE_ADMIN') %} 
+              <li><a href="#">Miels</a></li>
+              <li><a href="#">Epicerie fine</a></li>
+              <li><a href="#">Bien-être</a></li>
+              <li><a href="#">Coffrets Cadeaux</a></li>
+              <li><a href="{{ path('quisommesnous')}}">Qui-sommes nous?</a></li>
+              <li><a href="{{ path('livraison')}}">Livraison et retours</a></li>
+              <li><a href="{{ path('paiment')}}">Paiment sécurisé</a></li>
+              <li><a href="{{ path('cgv')}}">Mentions légales et CGV</a></li>
+              <li><a href="{{ path('add-contact')}}">Contact</a></li>   
               <li><a href="{{ path('affichage-product')}}">Modif/Suppression produits</a></li>
               <li><a href="{{ path('add-product')}}">Ajout de produits</a></li>
               <li><a href="{{ path('affichage-category')}}">Modif/Suppression catégories</a></li>
@@ -72,7 +81,7 @@
 
         <div class="panier_search">
 
-          <button id="myBtn_search"><i class="fas fa-search"></i></button>
+          {# <button id="myBtn_search"><i class="fas fa-search"></i></button>
           <div id="myModal_search" class="modal_search">
             <div class="modal-content_search">
               <span class="close_search">&times;</span>
@@ -82,7 +91,7 @@
               </form>
               
             </div>
-          </div>
+          </div> #}
     
           <button id="myBtn_panier"><i class="fas fa-shopping-cart"></i></button>    
           <div id="myModal_panier" class="modal_panier">
@@ -113,5 +122,14 @@
         <li><a href="{{ path('app_login')}}">Connexion</a></li>
         <li><a href="{{ path('app_register')}}">Créer un compte?</a></li>
         {% endif %} 
+
+        {% for message in app.flashes('compte_delete_success')  %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+        {% endfor %}
       </ul>
     </div>

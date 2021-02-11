@@ -38,34 +38,28 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            $this->addFlash("compte_edit_success", "Compte modifié avec succès");
+            $this->addFlash("compte_edit_success", "Votre compte a été modifié avec succès");
             return $this->redirectToRoute('compte');
         }
 
         return $this->render('info/modifcompte.html.twig', [
-            "form" => $form->createView(),
+            'form' => $form->createView(),
 
         ]);
     }
 
-     /**
-      * @Route("/info/delete-compte/{id}", name="delete-compte")
-      */
-     public function deletUser($id, Request $request)
-     {
-         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-         $form = $this->createForm(UserType::class, $user);
-         $form->handleRequest($request);
+    /**
+     * @Route("/info/delete-compte/{id}", name="delete-compte")
+     */
+    public function deletUser($id, Request $request)
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
 
-         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
-         return $this->redirectToRoute('index');
-     }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
 
-    
-
-
+        $this->addFlash("compte_delete_success", "Votre compte a été supprimé avec succès");
+        return $this->redirectToRoute('index');
+    }
 }
