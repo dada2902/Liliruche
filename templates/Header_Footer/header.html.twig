@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/cgv.css">
     <link rel="stylesheet" href="assets/css/quisommesnous.css">
-    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/articles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&amp;display=swap" rel="stylesheet">
     {% endblock %}
@@ -123,6 +123,24 @@
         {% endif %} 
 
         {% for message in app.flashes('compte_delete_success')  %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+        {% endfor %}
+
+         {% for message in app.flashes('panier_add_success')  %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+        {% endfor %}
+
+         {% for message in app.flashes('panier_remove_success')  %}
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
               {{ message }}
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">

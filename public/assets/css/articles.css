@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-.img_article{
+.img_article {
   border-radius: 15px;
 }
 
@@ -34,21 +34,21 @@
 .nom_prix1 {
   padding: 5px;
   text-align: center;
+  min-height: 125px;
 }
 
 .nom_prix1 a {
   text-decoration: none;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   color: #ffd480;
   text-shadow: 1px 1px 2px #ffd480, 0 0 1em black;
-
 }
 
-.price_cart{
+.price_cart {
   display: flex;
   justify-content: space-around;
   padding: 3px 0px 3px 0px;
-
+  height: 50px;
 }
 
 .nom_prix2 {
@@ -62,7 +62,7 @@
   margin-bottom: 0px;
 }
 
-.add_to_cart{
+.add_to_cart {
   padding: 5px;
   border: 1px solid;
   text-align: center;

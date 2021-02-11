@@ -56,6 +56,7 @@ class CartController extends AbstractController
         $session->set('panier', $panier);
 
         // dd($session->get('panier'));
+        $this->addFlash("panier_add_success", "Produit ajouté");
         return $this->redirectToRoute("cart_index");
     }
 
@@ -72,6 +73,7 @@ class CartController extends AbstractController
 
         $session->set('panier', $panier);
 
+        $this->addFlash("panier_remove_success", "Produit enlevé");
         return $this->redirectToRoute("cart_index");
     }
 }
