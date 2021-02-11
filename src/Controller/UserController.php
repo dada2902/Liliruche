@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use App\Form\UserType;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 class UserController extends AbstractController
 {
@@ -46,20 +48,24 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/info/delete-compte/{id}", name="delete-compte")
-     */
-    public function deletUser($id, Request $request)
-    {
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+     /**
+      * @Route("/info/delete-compte/{id}", name="delete-compte")
+      */
+     public function deletUser($id, Request $request)
+     {
+         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+         $form = $this->createForm(UserType::class, $user);
+         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
         }
-        return $this->redirectToRoute('index');
-    }
+         return $this->redirectToRoute('index');
+     }
+
+    
+
+
 }
