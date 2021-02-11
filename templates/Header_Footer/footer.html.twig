@@ -21,8 +21,7 @@
             {% if app.user %} 
                 <li><a href="{{ path('compte')}}">Mon compte</a></li>
             {% endif %} 
-                <li><a href="#">Commandes</a></li>
-                <li><a href="#">Mise à l'écart</a></li>
+                <li><a href="{{ path('cart_index') }}">Commandes</a></li>
                 <li><a href="{{ path('add-contact')}}">Contact</a></li>                    
             </ul>
         </div>
