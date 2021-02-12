@@ -51,9 +51,10 @@ class UserController extends AbstractController
     /**
      * @Route("/info/delete-compte/{id}", name="delete-compte")
      */
-    public function deletUser($id, Request $request)
+    public function deletUser($id)
     {
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($user);
