@@ -8,7 +8,17 @@
                 <li><a href="">Miels</a></li>
                 <li><a href="">Epicerie fine</a></li>
                 <li><a href="">Bien-être</a></li>
-                <li><a href="">Coffrets Cadeaux</a></li>
+                <li><a href="">Coffrets Cadeaux</a></li> 
+          
+             {# {% for category in categories %}
+             
+            <li><a href="{{ path('article', {id:product.id}) }}"></a> 
+               {{ category.nom }}
+            </li>
+
+             {% endfor %} #}
+                
+           
             </ul>
         </form>
     </div>

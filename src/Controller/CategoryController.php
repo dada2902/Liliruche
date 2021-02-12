@@ -55,7 +55,8 @@ class CategoryController extends AbstractController
 
             return $this->redirectToRoute('affichage-category');
         }
-
+        
+        $this->addFlash("category_add_success", "La categorie a été ajouter avec succès");
         return $this->render('admin/addcategory.html.twig', [
             "form" => $form->createView()
         ]);
@@ -78,6 +79,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('affichage-category');
         }
 
+        $this->addFlash("category_edit_success", "La categorie a été modifier avec succès");
         return $this->render('admin/addcategory.html.twig', [
             "form" => $form->createView()
         ]);
@@ -95,35 +97,36 @@ class CategoryController extends AbstractController
         $entityManager->remove($categories);
         $entityManager->flush();
 
+        $this->addFlash("category_delete_success", "La categorie a été supprimer avec succès");
         return $this->redirectToRoute('affichage-category');
     }
 
 
-    //-------------------------- UTILISATEURS ------------------------------------- 
+    // //-------------------------- UTILISATEURS ------------------------------------- 
 
-    /**
-     * @Route("/admin/affichage-user", name="affichage-user")
-     */
-    public function affichageUser()
-    {
-        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
-        return $this->render('admin/affichageuser.html.twig', [
-            'users' => $users
-        ]);
-    }
+    // /**
+    //  * @Route("/admin/affichage-user", name="affichage-user")
+    //  */
+    // public function affichageUser()
+    // {
+    //     $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+    //     return $this->render('admin/affichageuser.html.twig', [
+    //         'users' => $users
+    //     ]);
+    // }
 
-    /**
-     * @Route("/admin/delete-user/{id}", name="delete-user")
-     */
+    // /**
+    //  * @Route("/admin/delete-user/{id}", name="delete-user")
+    //  */
 
-    public function deleteUser($id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $users = $entityManager->getRepository(User::class)->find($id);
+    // public function deleteUser($id)
+    // {
+    //     $entityManager = $this->getDoctrine()->getManager();
+    //     $users = $entityManager->getRepository(User::class)->find($id);
 
-        $entityManager->remove($users);
-        $entityManager->flush();
+    //     $entityManager->remove($users);
+    //     $entityManager->flush();
 
-        return $this->redirectToRoute('affichage-user');
-    }
+    //     return $this->redirectToRoute('affichage-user');
+    // }
 }

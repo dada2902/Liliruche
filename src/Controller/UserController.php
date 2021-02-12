@@ -54,14 +54,12 @@ class UserController extends AbstractController
      public function deletUser($id, Request $request)
      {
          $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-         $form = $this->createForm(UserType::class, $user);
-         $form->handleRequest($request);
-
-         if ($form->isSubmitted() && $form->isValid()) {
+         
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
-        }
+            
+        $this->addFlash("compte_delete_success", "Votre compte a été supprimé avec succès");
          return $this->redirectToRoute('index');
      }
 
