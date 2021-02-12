@@ -1,0 +1,73 @@
+.container_article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+.shop-item {
+  /* background-color: rgba(90, 83, 83, 0.5); */
+  background-image: url(https://www.selection.ca/wp-content/uploads/2019/02/vertu-du-miel-superaliment-sante.jpg);
+  width: 250px;
+  height: auto;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 1%;
+  margin: 3%;
+  box-shadow: 10px 5px 5px grey;
+}
+
+.container-img {
+  width: 100%;
+}
+
+.img_article {
+  border-radius: 15px;
+}
+
+.container-img > img {
+  width: 100%;
+}
+
+.nom_prix1 {
+  padding: 5px;
+  text-align: center;
+  min-height: 125px;
+}
+
+.nom_prix1 a {
+  text-decoration: none;
+  font-family: "Yusei Magic", sans-serif;
+  color: #ffd480;
+  text-shadow: 1px 1px 2px #ffd480, 0 0 1em black;
+}
+
+.price_cart {
+  display: flex;
+  justify-content: space-around;
+  padding: 3px 0px 3px 0px;
+  height: 50px;
+}
+
+.nom_prix2 {
+  padding: 5px;
+  border: 1px solid;
+  text-align: center;
+  width: 45%;
+  background-color: orange;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 0px;
+}
+
+.add_to_cart {
+  padding: 5px;
+  border: 1px solid;
+  text-align: center;
+  width: 45%;
+  background-color: orange;
+  color: black;
+  border-radius: 5px;
+}

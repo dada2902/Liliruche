@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 use App\Form\UserType;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 class UserController extends AbstractController
 {
@@ -36,12 +38,12 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            $this->addFlash("compte_edit_success", "Compte modifié avec succès");
+            $this->addFlash("compte_edit_success", "Votre compte a été modifié avec succès");
             return $this->redirectToRoute('compte');
         }
 
         return $this->render('info/modifcompte.html.twig', [
-            "form" => $form->createView(),
+            'form' => $form->createView(),
 
         ]);
     }
@@ -52,12 +54,13 @@ class UserController extends AbstractController
     public function deletUser($id)
     {
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-        
-       
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-      
+
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        $this->addFlash("compte_delete_success", "Votre compte a été supprimé avec succès");
         return $this->redirectToRoute('index');
     }
 }
