@@ -102,31 +102,5 @@ class CategoryController extends AbstractController
     }
 
 
-    // //-------------------------- UTILISATEURS ------------------------------------- 
-
-    // /**
-    //  * @Route("/admin/affichage-user", name="affichage-user")
-    //  */
-    // public function affichageUser()
-    // {
-    //     $users = $this->getDoctrine()->getRepository(User::class)->findAll();
-    //     return $this->render('admin/affichageuser.html.twig', [
-    //         'users' => $users
-    //     ]);
-    // }
-
-    // /**
-    //  * @Route("/admin/delete-user/{id}", name="delete-user")
-    //  */
-
-    // public function deleteUser($id)
-    // {
-    //     $entityManager = $this->getDoctrine()->getManager();
-    //     $users = $entityManager->getRepository(User::class)->find($id);
-
-    //     $entityManager->remove($users);
-    //     $entityManager->flush();
-
-    //     return $this->redirectToRoute('affichage-user');
-    // }
+   
 }

@@ -38,12 +38,12 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
-            $this->addFlash("compte_edit_success", "Compte modifié avec succès");
+            $this->addFlash("compte_edit_success", "Votre compte a été modifié avec succès");
             return $this->redirectToRoute('compte');
         }
 
         return $this->render('info/modifcompte.html.twig', [
-            "form" => $form->createView(),
+            'form' => $form->createView(),
 
         ]);
     }
@@ -63,7 +63,5 @@ class UserController extends AbstractController
          return $this->redirectToRoute('index');
      }
 
-    
-
-
+  
 }
