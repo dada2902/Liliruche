@@ -3,7 +3,7 @@
 {% block body %}
 <main class="fond_article">
     <div class="container_main">
-        <form action="">
+        <form>
             <ul id="main_list">
                 <li><a href=""><img src="https://img.icons8.com/fluent-systems-regular/24/000000/honeycombs.png" alt=""/> Miels</a></li>
                 <li><a href=""><i class="fab fa-pagelines"></i> Epicerie fine</a></li>
@@ -17,7 +17,7 @@
 
         {% for product in products %} 
             <div class="shop-item">
-            <a href="{{ path('article', {id:product.id})}}">
+                <a href="{{ path('article', {id:product.id})}}"></a>
                 <article>
                     {% for image in product.images %} 
                         <figure class="container-img">
@@ -25,11 +25,11 @@
                         </figure>
                     {% endfor %}  
                     <div class="product-infos">
-                        <h3 class="nom_prix1">{{ product.nomDeProduit }}</a></h3>
-                            <div class="price_cart">
-                                <h4 class="nom_prix2">{{ product.prix }}€</h4>
-                                <a type="button" class="btn btn-warning" href="{{ path('cart_add', {'id': product.id})}}"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
-                            </div>
+                        <h3 class="nom_prix1">{{ product.nomDeProduit }}</h3>
+                        <div class="price_cart">
+                            <h4 class="nom_prix2">{{ product.prix }}€</h4>
+                            <a href="{{ path('cart_add', {'id': product.id})}}" class="btn btn-warning"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
+                        </div>
                     </div>
                 </article>
             </div>

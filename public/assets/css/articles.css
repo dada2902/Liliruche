@@ -37,7 +37,7 @@
   min-height: 125px;
 }
 
-.nom_prix1 a {
+.nom_prix1 {
   text-decoration: none;
   font-family: "Yusei Magic", sans-serif;
   color: #ffd480;
