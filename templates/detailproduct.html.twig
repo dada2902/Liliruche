@@ -13,7 +13,8 @@
             <h3 class="card-title">{{ product.nomDeProduit }}</h3>
             <h4>{{ product.prix ~ ' €'}}</h4>
             <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">{{ product.category.nom }}</p>
+            <p class="card-text">Categorie: {{ product.category.nom }}</p>
+            <a class="btn btn-warning" href="{{ path('cart_add', {'id': product.id})}}"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
         </div>
     </div>
 </div>   
