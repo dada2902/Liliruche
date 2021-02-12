@@ -48,19 +48,20 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/info/delete-compte/{id}", name="delete-compte")
-     */
-    public function deletUser($id)
-    {
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
-
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($user);
-        $entityManager->flush();
-
+     /**
+      * @Route("/info/delete-compte/{id}", name="delete-compte")
+      */
+     public function deletUser($id, Request $request)
+     {
+         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+         
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+            
         $this->addFlash("compte_delete_success", "Votre compte a été supprimé avec succès");
-        return $this->redirectToRoute('index');
-    }
+         return $this->redirectToRoute('index');
+     }
+
+  
 }

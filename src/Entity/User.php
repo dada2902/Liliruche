@@ -26,6 +26,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *  message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $email;
 
@@ -37,21 +40,32 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="5", minMessage="Doit contenir plus de 5 caractéres")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Prénom invalide, trop court "
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Nom invalide, trop court"
+     * )
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Length(min = 8, max = 15, minMessage = "Trop court", maxMessage = "Trop long")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message="Uniquement des chiffres ")
      */
     private $telephone;
 

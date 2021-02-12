@@ -41,6 +41,8 @@ class ContactController extends AbstractController
             $entityManager->flush();
         }
 
+
+        $this->addFlash("message_success", "Votre message a été envoyer avec succès");
         return $this->render('info/addcontact.html.twig', [
             "form" => $form->createView()
         ]);
@@ -58,7 +60,51 @@ class ContactController extends AbstractController
 
         $entityManager->remove($contacts);
         $entityManager->flush();
-
+        
+        $this->addFlash("message_delete_success", "Votre message a été supprimer avec succès");
         return $this->redirectToRoute('affichage-contact');
     }
+
+
+    // /**
+    //  * @Route("/info/mailcontact", name="mailcontact")
+    //  */
+    // public function contact(Request $request, \Swift_Mailer $mailer)
+    // {
+        
+    //     $form = $this->createForm(ContactType::class);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+
+    //         $contact = $form->getData();
+
+    //         // envoi de l'email
+    //         $message = (new \Swift_Message('Nouveau contact'))
+
+    //         ->setFrom($contact['email'])
+
+    //         ->setTo('ayadlylia1991@gmail.com')
+
+    //         ->setBody(
+    //             $this->renderView(
+    //                 'email/addcontact.html.twig', compact('contact')
+    //             ),
+    //             'text/html'
+    //         )
+
+    //    ;
+
+    //    $mailer->send($message);
+
+    //    $this->addFlash('message', 'Le message a bien été envoyé');
+    //    return $this->redirectToRoute('home');
+
+
+    //     }
+
+    //     return $this->render('home.html.twig', [
+    //         "form" => $form->createView()
+    //     ]);
+    // }
 }

@@ -6,7 +6,18 @@
         <link rel="stylesheet" href="assets/css/contact.css">
 {% endblock %}
 
+
+
 {% block body %}
+
+ {% for message in app.flashes('message_success')  %}
+    <div class="container alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  {% endfor %}
 
 <div class="container_flex">
 
@@ -28,7 +39,7 @@
                     {{ form_row(form.nom, {label: 'Nom' }) }}
                     {{ form_row(form.prenom,  {label:'Prénom'}) }}
                     {{ form_row(form.email, {label: 'Adresse Email'}) }}
-                    {{ form_row(form.description, {label: 'Déscription'}) }} 
+                    {{ form_row(form.description | raw, {label: 'Déscription'}) }} 
                     <button  type="submit" class="button_submit">Envoyé <i class="fas fa-paper-plane"></i></button>
                 </div>
             {{ form_end(form) }}

@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -26,11 +27,13 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message = "Ce champ ne peut être vide")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Regex("#[0-9]+(\.[0-9]{1,2})?#")
      */
     private $prix;
 
@@ -41,6 +44,10 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Nom invalide, trop court"
+     * )
      */
     private $nomDeProduit;
 

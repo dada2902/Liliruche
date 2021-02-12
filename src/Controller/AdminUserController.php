@@ -33,7 +33,8 @@ class AdminUserController extends AbstractController
 
         $entityManager->remove($users);
         $entityManager->flush();
-
+        
+        $this->addFlash("user_delete_success", "L'utilisateur a été supprimer avec succès");
         return $this->redirectToRoute('affichage-user');
     }
 }
