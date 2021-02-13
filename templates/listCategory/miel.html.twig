@@ -22,11 +22,11 @@
             <div class="shop-item">
             <a href="{{ path('article', {id:product.id})}}">
                 <article>
-                    {# {% for image in product.images %}  #}
+                     {% for image in product.images %}  
                         <figure class="container-img">
-                            {# <img class="img_article" src="{{'uploads/' ~ image.titre }}" alt=""> #}
+                             <img class="img_article" src="{{'uploads/' ~ image.titre }}" alt=""> 
                         </figure>
-                    {# {% endfor %}   #}
+                    {% endfor %}   
                     <div class="product-infos">
                         <h3 class="nom_prix1">{{ product.nom_de_produit }}</a></h3>
                             <div class="price_cart">
