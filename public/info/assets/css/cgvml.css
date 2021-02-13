@@ -12,15 +12,15 @@
   text-align: center;
   padding: 50px;
   text-shadow: 1px 1px 2px #ffcc00;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
 }
 
 #cgv h2 {
   padding: 20px;
 }
 
-#cgv .cgv_div_h2{
-  padding: 0rem 8rem 8rem 8rem;
+#cgv .cgv_div_h2 {
+  padding: 0% 10% 10% 10%;
 }
 
 #cgv .ml {

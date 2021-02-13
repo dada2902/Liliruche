@@ -21,11 +21,9 @@ main {
   font-size: 20px;
   color: rgb(90, 83, 83);
   padding: 10px;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   text-decoration: none;
-  
 }
-
 
 @media screen and (max-width: 1054px) {
   #main_list {
@@ -57,16 +55,16 @@ main {
   text-shadow: 1px 1px 2px #ffcc00;
   padding-bottom: 2rem;
   text-align: center;
-  font-family: 'Yusei Magic',sans-serif;
+  font-family: "Yusei Magic", sans-serif;
 }
 
-.main_paiment{
+.main_paiment {
   padding: 2rem 8rem 3rem 8rem;
 }
 
-.titre_paiment{
+.titre_paiment {
   text-shadow: 1px 1px 2px #ffcc00;
   padding-bottom: 2rem;
   text-align: center;
-  font-family: 'Yusei Magic',sans-serif;
+  font-family: "Yusei Magic", sans-serif;
 }
