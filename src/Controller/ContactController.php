@@ -37,17 +37,19 @@ class ContactController extends AbstractController
 
          if ($form->isSubmitted() && $form->isValid()) {
 
-             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->persist($new_contact);
-             $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($new_contact);
+            $entityManager->flush()
+
+            $this->addFlash("message_success", "Votre message a été envoyer avec succès");
+            return $this->redirectToRoute('index');
         }
 
+        return $this->render('info/addcontact.html.twig', [
+            "form" => $form->createView()
+        ]);
+    }
 
-         $this->addFlash("message_success", "Votre message a été envoyer avec succès");
-         return $this->render('info/addcontact.html.twig', [
-             "form" => $form->createView()
-         ]);
-     }
 
 
     /**
@@ -61,7 +63,7 @@ class ContactController extends AbstractController
 
         $entityManager->remove($contacts);
         $entityManager->flush();
-        
+
         $this->addFlash("message_delete_success", "Votre message a été supprimer avec succès");
         return $this->redirectToRoute('affichage-contact');
     }
@@ -75,6 +77,7 @@ class ContactController extends AbstractController
         
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
+
 
          if ($form->isSubmitted() && $form->isValid()) {
 
