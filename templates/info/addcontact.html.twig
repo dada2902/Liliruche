@@ -6,11 +6,9 @@
         <link rel="stylesheet" href="assets/css/contact.css">
 {% endblock %}
 
-
-
 {% block body %}
 
- {% for message in app.flashes('message_success')  %}
+{% for message in app.flashes('message_success')  %}
     <div class="container alert alert-success alert-dismissible fade show" role="alert">
         {{ message }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,14 +17,14 @@
     </div>
   {% endfor %}
 
-<div class="container_flex">
 
+<div class="container_flex">
         <div class="info_contact">
           <ul>
             <h1>Nous contacter ?</h1>
             <li>Adresse: 12, rue de Maupassant - 75000 Paris</li>
             <li>Téléphone : 01 11 12 13 14</li>
-            <li>Email: liliruche@hotmail.fr</li>
+            <li>Email: <a href="mailto:rucheelilii@gmail.com">rucheelilii@gmail.com</a></li>
             <li>Horaires d'ouvertures : 9H30-19H00</li>
           </ul>
         </div>
