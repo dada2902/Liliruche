@@ -29,26 +29,24 @@ class ContactController extends AbstractController
     /**
     * @Route("/info/add-contact", name="add-contact")
     */
-     public function addContact(Request $request)
-     {
+      public function addContact(Request $request)
+      {
         $new_contact = new Contact;
         $form = $this->createForm(ContactType::class, $new_contact);
-         $form->handleRequest($request);
+        $form->handleRequest($request);
 
-         if ($form->isSubmitted() && $form->isValid()) {
+          if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($new_contact);
-            $entityManager->flush()
+             $entityManager = $this->getDoctrine()->getManager();
+             $entityManager->persist($new_contact);
+             $entityManager->flush();
 
-            $this->addFlash("message_success", "Votre message a été envoyer avec succès");
-            return $this->redirectToRoute('index');
-        }
-
-        return $this->render('info/addcontact.html.twig', [
-            "form" => $form->createView()
-        ]);
-    }
+         }
+         
+         return $this->render('info/addcontact.html.twig', [
+             "form" => $form->createView()
+         ]);
+     }
 
 
 
