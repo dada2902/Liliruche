@@ -22,14 +22,14 @@ class InfoController extends AbstractController
 
     // ---------------------------  CONTACT  -----------------------------------------
 
-    /**
-     * @Route("/info/contact", name="contact")
-     */
-    public function contact()
-    {
+    // /**
+    //  * @Route("/info/contact", name="contact")
+    //  */
+    // public function contact()
+    // {
 
-        return $this->render('info/contact.html.twig');
-    }
+    //     return $this->render('info/contact.html.twig');
+    // }
 
     // ---------------------------  PAIMENT SECURISE  -----------------------------------------
 
