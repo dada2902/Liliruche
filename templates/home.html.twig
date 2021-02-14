@@ -26,6 +26,7 @@
                             <img class="img_article" src="{{'uploads/' ~ image.titre }}" alt="">
                         </figure>
                     {% endfor %}  
+
                     <div class="product-infos">
                         <h3 class="nom_prix1">{{ product.nomDeProduit }}</a></h3>
                             <div class="price_cart">
@@ -33,6 +34,7 @@
                                 <a class="btn btn-warning" href="{{ path('cart_add', {'id': product.id})}}"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
                             </div>
                    
+
                 </article>
             </div>
 
