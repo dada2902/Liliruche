@@ -17,15 +17,18 @@
 
         {% for product in products %} 
             <div class="shop-item">
-                <a href="{{ path('article', {id:product.id})}}"></a>
                 <article>
+                <a href="{{ path('article', {id:product.id})}}">
                     {% for image in product.images %} 
                         <figure class="container-img">
                             <img class="img_article" src="{{'uploads/' ~ image.titre }}" alt="">
                         </figure>
+                        </a>
                     {% endfor %}  
                     <div class="product-infos">
+                        <a style="text-decoration: none;" href="{{ path('article', {id:product.id})}}">
                         <h3 class="nom_prix1">{{ product.nomDeProduit }}</h3>
+                        </a>
                         <div class="price_cart">
                             <h4 class="nom_prix2">{{ product.prix }}€</h4>
                             <a href="{{ path('cart_add', {'id': product.id})}}" class="btn btn-warning"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
@@ -42,7 +45,3 @@
  {% endblock %}
 
  {% include 'Header_Footer/footer.html.twig' %}
-    
-
-
-   

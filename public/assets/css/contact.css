@@ -12,6 +12,7 @@ body {
   box-shadow: 3px 3px 3px grey;
   border: none;
   border-radius: 50px;
+  text-align: center;
 }
 
 ul {
