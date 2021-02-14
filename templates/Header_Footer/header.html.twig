@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8">
     <meta name="description" content="Site ecommerce"><!--description de la page-->
@@ -114,9 +114,9 @@
         <li><a href="{{ path('app_login')}}">Connexion</a></li>
         <li><a href="{{ path('app_register')}}">Créer un compte?</a></li>
         {% endif %} 
-     
       </ul>
-          {% for message in app.flashes('compte_delete_success')  %}
+      
+        {% for message in app.flashes('compte_delete_success')  %}
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{ message }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -135,6 +135,7 @@
         {% endfor %}
 
          {% for message in app.flashes('panier_remove_success')  %}
+
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
               {{ message }}
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">

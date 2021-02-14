@@ -8,7 +8,6 @@
 }
 
 .shop-item {
-  /* background-color: rgba(90, 83, 83, 0.5); */
   background-image: url(https://www.selection.ca/wp-content/uploads/2019/02/vertu-du-miel-superaliment-sante.jpg);
   width: 250px;
   height: auto;
@@ -35,14 +34,12 @@
   padding: 5px;
   text-align: center;
   min-height: 125px;
-}
-
-.nom_prix1 a {
   text-decoration: none;
   font-family: "Yusei Magic", sans-serif;
   color: #ffd480;
   text-shadow: 1px 1px 2px #ffd480, 0 0 1em black;
 }
+
 
 .price_cart {
   display: flex;
