@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -70,7 +71,7 @@ class User implements UserInterface
     private $telephone;
 
     /**
-    * @ORM\Column(type="string", nullable=true)
+    * @ORM\Column(type="date", nullable=true)
      */
     private $datedenaissance;
 
@@ -188,12 +189,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateDeNaissance(): ?string
+    public function getDateDeNaissance(): ?DateTime
     {
         return $this->datedenaissance;
     }
 
-    public function setDateDeNaissance(?string $datedenaissance): self
+    public function setDateDeNaissance(?DateTime $datedenaissance): self
     {
         $this->datedenaissance = $datedenaissance;
 
