@@ -40,7 +40,9 @@ class ContactController extends AbstractController
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($new_contact);
              $entityManager->flush();
+             $this->addFlash("message_success", "Le message a été envoyé avec succès");
 
+             return $this->redirectToRoute('index');
          }
          
          return $this->render('info/addcontact.html.twig', [
