@@ -6,12 +6,39 @@
 {% block body %}
     <h1> Listes des Catégories </h1>
 
+    {% for message in app.flashes('category_add_success')%}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+           {{ message }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+   {% endfor %}
+
+   {% for message in app.flashes('category_edit_success') %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         {{ message }}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+       </button>
+      </div>
+   {% endfor %}
+
+   {% for message in app.flashes('category_delete_success') %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         {{ message }}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+       </button>
+      </div>
+   {% endfor %}
+
   <table class="table table-dark table-striped">
   <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">Titre</th>
-      <th scope="col">Déscription</th>
+      <th scope="col">Description</th>
       <th scope="col" class="centrer">Action</th>
     </tr>
   </thead>

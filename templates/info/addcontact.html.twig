@@ -8,14 +8,14 @@
 
 {% block body %}
 
-<div class="container_flex">
 
+<div class="container_flex">
         <div class="info_contact">
           <h1>Nous contacter ?</h1>
           <ul>
             <li>Adresse: 12, rue de Maupassant - 75000 Paris</li>
             <li>Téléphone : 01 11 12 13 14</li>
-            <li>Email: liliruche@hotmail.fr</li>
+            <li>Email: <a href="mailto:rucheelilii@gmail.com">rucheelilii@gmail.com</a></li>
             <li>Horaires d'ouvertures : 9H30-19H00</li>
           </ul>
         </div>
@@ -28,7 +28,7 @@
                     {{ form_row(form.nom, {label: 'Nom' }) }}
                     {{ form_row(form.prenom,  {label:'Prénom'}) }}
                     {{ form_row(form.email, {label: 'Adresse Email'}) }}
-                    {{ form_row(form.description, {label: 'Déscription'}) }} 
+                    {{ form_row(form.description | raw, {label: 'Déscription'}) }} 
                     <button  type="submit" class="button_submit">Envoyé <i class="fas fa-paper-plane"></i></button>
                 </div>
             {{ form_end(form) }}

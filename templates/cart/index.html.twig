@@ -32,7 +32,7 @@
                         <td>{{ item.quantity }} </td>
                         <td>{{ item.product.prix * item.quantity}} €</td>
                         <td>
-                        <a class="btn btn-danger btn-sm" style="height: 30px; font-size: 15px;" href="{{ path('cart_remove', {'id': item.product.id}) }} ">&#10060;
+                        <a class="btn btn-danger btn-sm" style="height: 30px; font-size: 15px;" href="{{ path('cart_remove', {'id': item.product.id}) }} ">supprimer
                         </a>
                         </td>
                     </tr>
@@ -44,6 +44,8 @@
                     <td></td>
                     <td clospan="3" class="text-right">Total : </td>
                     <td>{{ total }} €</td>
+                    <td><a href="{{ path('livraison-commande') }}" class="btn btn-success btn-sm pull-right" style="height: 30px; font-size: 15px;" >Valider mon panier</a></td> 
+                   <td><a href="{{ path('index') }}" class="btn btn-primary">Continuer mes achats</a></td>  
                 </tr>
             </tfoot>
         <table>

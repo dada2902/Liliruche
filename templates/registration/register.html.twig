@@ -11,6 +11,8 @@
     <div class="alert alert-danger" role="alert">{{ flashError }}</div>
 {% endfor %}
 
+
+
 <div class="displayflex">
     <div class="logo">
         <a href="{{ path('index')}}"><img class="logo_img" src="assets/img/logo.jpeg" href="" alt=""></a>
@@ -23,7 +25,7 @@
                     {{ form_row(registrationForm.nom, {label: 'Nom*'} ) }}
                     {{ form_row(registrationForm.prenom, {label: 'Prénom*'}) }}
                     {{ form_row(registrationForm.telephone, {label: 'Téléphone'}) }}
-                    {{ form_row(registrationForm.datedenaissance, {label: 'Date de naissance'}) }}
+                    {{ form_row(registrationForm.datedenaissance, {label: 'Date de naissance* Format (AAAA-MM-JJ)'}) }}
                     {{ form_row(registrationForm.email, {label: 'Adresse Email*'}) }}
                     {{ form_row(registrationForm.password, {label: 'Mot de passe*'}) }}    
                     <label class="label_inscription" for="confirmation_mdp"><b>Confirmation Mot de passe*</b></label>

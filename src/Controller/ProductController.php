@@ -77,6 +77,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('affichage-product');
         }
 
+        $this->addFlash("product_add_success", "Votre produit a été ajouté avec succès");
         return $this->render('admin/addproduct.html.twig', [
             "form" => $form->createView()
         ]);
@@ -118,7 +119,8 @@ class ProductController extends AbstractController
 
             return $this->redirectToRoute('affichage-product');
         }
-
+        
+        $this->addFlash("product_edit_success", "Votre produit a été modifier avec succès");
         return $this->render('admin/addproduct.html.twig', [
             "product" => $product,
             "form" => $form->createView()
@@ -136,7 +138,8 @@ class ProductController extends AbstractController
 
         $entityManager->remove($products);
         $entityManager->flush();
-
+   
+        $this->addFlash("product_delete_success", "Votre produit a été supprimer avec succès");
         return $this->redirectToRoute('affichage-product');
     }
 }

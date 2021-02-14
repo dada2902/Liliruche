@@ -11,28 +11,35 @@
 
     <h1><i class="fas fa-user"></i><br>Connexion</h1>  
 
+
         <form method="post" class="form_connexion">
-            <div class="connexion">
-                <a href="{{ path('index')}}"><img src="assets/img/logo.jpeg" alt=""></a>
-            </div>
-            <div class="container_connexion"> 
-                
-                <label class="label_connexion" for="inputEmail"><b>Adresse Email</b></label>
-                <input class="input_connexion" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Entrer votre e-mail" required autofocus>
-                <label class="label_connexion" for="inputPassword"><b>Mot de passe</b></label>
-                <input class="input_connexion" type="password" placeholder="Entrer votre Mot de Passe" name="password" id="inputPassword" required>
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <button  type="submit" class="button_connexion">Connexion</button>
 
-                <div class="input_rester">
-                
-                    <input  class="input_con" type="checkbox" name="Rester_connecte">
-                    <label class="input_con">Rester connecté</label>
-                    <label class="input_con"><a href="#">Mot de passe oublié</a></label>
-                </div>
+          {% if error %}
+          <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+          {% endif %}
 
-            </div>
+              <div class="connexion">
+                  <a href="{{ path('index')}}"><img src="assets/img/logo.jpeg" alt=""></a>
+              </div>
+              <div class="container_connexion"> 
+
+                  <label class="label_connexion" for="inputEmail"><b>Adresse Email</b></label>
+                  <input class="input_connexion" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Entrer votre e-mail" required autofocus>
+                  <label class="label_connexion" for="inputPassword"><b>Mot de passe</b></label>
+                  <input class="input_connexion" type="password" placeholder="Entrer votre Mot de Passe" name="password" id="inputPassword" required>
+                  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                  <button  type="submit" class="button_connexion">Connexion</button>
+
+                  <div class="input_rester">
+
+                      <input  class="input_con" type="checkbox" name="Rester_connecte">
+                      <label class="input_con">Rester connecté</label>
+                      <label class="input_con"><a href="#">Mot de passe oublié</a></label>
+                  </div>
+
+
+              </div>
         </form>
-    </div>
+
 
 {% endblock %}

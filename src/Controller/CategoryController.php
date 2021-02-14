@@ -55,7 +55,8 @@ class CategoryController extends AbstractController
 
             return $this->redirectToRoute('affichage-category');
         }
-
+        
+        $this->addFlash("category_add_success", "La categorie a été ajouter avec succès");
         return $this->render('admin/addcategory.html.twig', [
             "form" => $form->createView()
         ]);
@@ -78,6 +79,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('affichage-category');
         }
 
+        $this->addFlash("category_edit_success", "La categorie a été modifier avec succès");
         return $this->render('admin/addcategory.html.twig', [
             "form" => $form->createView()
         ]);
@@ -95,7 +97,12 @@ class CategoryController extends AbstractController
         $entityManager->remove($categories);
         $entityManager->flush();
 
+        $this->addFlash("category_delete_success", "La categorie a été supprimer avec succès");
         return $this->redirectToRoute('affichage-category');
     }
 
+
+    
+
+   
 }
