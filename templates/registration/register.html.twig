@@ -15,7 +15,7 @@
 
 <div class="displayflex">
     <div class="logo">
-        <a href="{{ path('index')}}"><img class="logo_img" src="assets/img/logo.jpeg" href="" alt=""></a>
+        <a href="{{ path('index')}}"><img class="logo_img" src="assets/img/logo.jpeg" alt=""></a>
     </div>
     <div class="formulaire-inscription">
         <div class="form_inscription">
@@ -28,12 +28,12 @@
                     {{ form_row(registrationForm.datedenaissance, {label: 'Date de naissance* Format (AAAA-MM-JJ)'}) }}
                     {{ form_row(registrationForm.email, {label: 'Adresse Email*'}) }}
                     {{ form_row(registrationForm.password, {label: 'Mot de passe*'}) }}    
-                    <label class="label_inscription" for="confirmation_mdp"><b>Confirmation Mot de passe*</b></label>
+                    <label class="label_inscription"><b>Confirmation Mot de passe*</b></label>
                     <input class="label_inscription" type="password" placeholder="Entrez le mot de passe à nouveau" name="mdp" required>
                     <button  type="submit" class="button_inscription">Inscription</button>
                     <div class="input_condition">
-                        <input  class="input_con"type="checkbox" name="condition_utilisation">
-                        <label class="input_con" for="">j'accepte les conditions d'utilisation.</label>
+                        <input  class="input_con" type="checkbox" name="condition_utilisation">
+                        <label class="input_con">j'accepte les conditions d'utilisation.</label>
                         <label class="input_con">Vous avez déjà un compte ? <a href="../LiliRuche_page_connexion/index.html"> Identifiez-vous</a></label>
                     </div>
                 </div>
