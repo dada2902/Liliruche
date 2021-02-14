@@ -3,7 +3,7 @@
 {% block body %}
 <main class="fond_article">
     <div class="container_main">
-        <form>
+        <form action="">
             <ul id="main_list">
 
                 <li><a href="{{ path('miel') }}"><img src="https://img.icons8.com/fluent-systems-regular/24/000000/honeycombs.png" alt=""/> Miels</a></li>
@@ -19,24 +19,22 @@
 
         {% for product in products %} 
             <div class="shop-item">
+            <a href="{{ path('article', {id:product.id})}}">
                 <article>
-                <a href="{{ path('article', {id:product.id})}}">
                     {% for image in product.images %} 
                         <figure class="container-img">
                             <img class="img_article" src="{{'uploads/' ~ image.titre }}" alt="">
                         </figure>
-                        </a>
                     {% endfor %}  
 
-                        <a style="text-decoration: none;" href="{{ path('article', {id:product.id})}}">
-                        <h3 class="nom_prix1">{{ product.nomDeProduit }}</h3>
-                        </a>
-                        <div class="price_cart">
-                            <h4 class="nom_prix2">{{ product.prix }}€</h4>
-                            <a href="{{ path('cart_add', {'id': product.id})}}" class="btn btn-warning"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
-                        </div>
+                    <div class="product-infos">
+                        <h3 class="nom_prix1">{{ product.nomDeProduit }}</a></h3>
+                            <div class="price_cart">
+                                <h4 class="nom_prix2">{{ product.prix }}€</h4>
+                                <a class="btn btn-warning" href="{{ path('cart_add', {'id': product.id})}}"><i style="color: white; font-size:25px;" class="fas fa-cart-plus"></i></a>
+                            </div>
+                   
 
-                    
                 </article>
             </div>
 
@@ -48,3 +46,7 @@
  {% endblock %}
 
  {% include 'Header_Footer/footer.html.twig' %}
+    
+
+
+   

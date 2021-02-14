@@ -6,7 +6,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Contact;
-
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,28 +26,28 @@ class ContactController extends AbstractController
     }
 
     /**
-    * @Route("/info/add-contact", name="add-contact")
-    */
-      public function addContact(Request $request)
-      {
+     * @Route("/info/add-contact", name="add-contact")
+     */
+    public function addContact(Request $request)
+    {
         $new_contact = new Contact;
         $form = $this->createForm(ContactType::class, $new_contact);
         $form->handleRequest($request);
 
-          if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
-             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->persist($new_contact);
-             $entityManager->flush();
-             $this->addFlash("message_success", "Le message a été envoyé avec succès");
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($new_contact);
+            $entityManager->flush();
+            $this->addFlash("message_success", "Le message a été envoyé avec succès");
 
-             return $this->redirectToRoute('index');
-         }
-         
-         return $this->render('info/addcontact.html.twig', [
-             "form" => $form->createView()
-         ]);
-     }
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render('info/addcontact.html.twig', [
+            "form" => $form->createView()
+        ]);
+    }
 
 
 
@@ -69,46 +68,43 @@ class ContactController extends AbstractController
     }
 
 
-     /**
+    /**
      * @Route("/info/mail-contact", name="mail-contact")
      */
     public function mail(Request $request, \Swift_Mailer $mailer)
     {
-        
+
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
 
-         if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $contact = $form->getData();
 
             // envoi de l'email
             $message = (new \Swift_Message('Nouveau contact'))
 
-             ->setFrom($contact['email'])
+                ->setFrom($contact['email'])
 
-             ->setTo('rucheelilii@gmail.com')
-             ->setBody(
-                 $this->renderView(
-                     'email/addcontact.html.twig', compact('contact')
-                ),
-               'text/html'
-            )
+                ->setTo('rucheelilii@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'email/addcontact.html.twig',
+                        compact('contact')
+                    ),
+                    'text/html'
+                );
 
-        ;
+            $mailer->send($message);
 
-    $mailer->send($message);
+            $this->addFlash('message', 'Le message a bien été envoyé');
+            return $this->redirectToRoute('index');
+        }
 
-    $this->addFlash('message', 'Le message a bien été envoyé');
-        return $this->redirectToRoute('index');
+        return $this->render('/home.html.twig', [
+            "form" => $form->createView(),
 
-
-         }
-
-           return $this->render('/home.html.twig', [
-              "form" => $form->createView(),
-            
-          ]);
-     }
+        ]);
+    }
 }
