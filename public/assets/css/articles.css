@@ -30,6 +30,14 @@
   width: 100%;
 }
 
+.container-img > a {
+  width: 100%;
+}
+
+a.text-yellow {
+  color: #ffd480;
+}
+
 .nom_prix1 {
   padding: 5px;
   text-align: center;

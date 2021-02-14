@@ -22,6 +22,14 @@
   width: 100%;
 }
 
+.container-img > a {
+  width: 100%;
+}
+
+a.text-yellow {
+  color: #ffd480;
+}
+
 .img_article {
   border-radius: 15px;
 }
