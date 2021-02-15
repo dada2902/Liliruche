@@ -23,6 +23,8 @@
     </div>
   {% endfor %}
 
+  {# {{ dump(app.user )}} #}
+
   <table class="container table table-dark table-striped">
     <thead>
       <tr>
@@ -39,9 +41,10 @@
     <tbody>
       <tr>
         <th scope="row">{{ app.user.nom }}</th>  
+        
         <td>{{ app.user.prenom }}</td> 
         <td>{{ app.user.telephone }}</td>
-        <td>{{ app.user.datedenaissance }}</td> 
+        <td>{{ app.user.datedenaissance|date("Y-m-d") }}</td> 
         <td>{{ app.user.email }}</td>
 
         <td style="text-align: center;">
