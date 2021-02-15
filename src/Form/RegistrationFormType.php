@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -21,7 +22,9 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('datedenaissance')
+            ->add('datedenaissance', DateType::class,[
+                'years' => range(1900,(date('Y')-18))
+            ])
             ->add('email')
             ->add('password', PasswordType::class, [
                 // instead of being set onto the object directly,
