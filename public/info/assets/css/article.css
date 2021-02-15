@@ -30,7 +30,7 @@
   width: 100%;
 }
 
-.nom_prix1 {
+.nom_prix1 a {
   padding: 5px;
   text-align: center;
   min-height: 125px;
@@ -39,7 +39,6 @@
   color: #ffd480;
   text-shadow: 1px 1px 2px #ffd480, 0 0 1em black;
 }
-
 
 .price_cart {
   display: flex;
