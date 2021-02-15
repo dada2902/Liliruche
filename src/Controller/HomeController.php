@@ -20,7 +20,7 @@ class HomeController extends AbstractController
   public function article()
   {
     $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-    return $this->render('/home.html.twig', [
+    return $this->render('home.html.twig', [
       'products' => $products
     ]);
   }
