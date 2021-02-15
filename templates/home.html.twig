@@ -20,7 +20,7 @@
                 <article>
                     {% for image in product.images %} 
                         <figure class="container-img">
-                            <a class="container-img" href="{{ path('article', {id:product.id})}}"><img class="img_article" src="{{'uploads/' ~ image.titre }}" alt=""></a>
+                            <a class="container-img" href="{{ path('article', {id:product.id})}}"><img class="img_article" src="{{'uploads/' ~ image.titre }}" alt="{{ product.nomDeProduit }}"></a>
                         </figure>
                     {% endfor %}  
 
