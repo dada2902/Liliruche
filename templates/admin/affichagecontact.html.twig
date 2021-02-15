@@ -35,7 +35,7 @@
             <td>{{ contact.prenom }}</td>
             <td>{{ contact.email }}</td>
             <td>{{ contact.description }}</td>
-            <td><a href="{{ path('delete-contact', {id : contact.id}) }}" type="button" class="btn btn-danger">Supprimer</a></td>    
+            <td><a href="{{ path('delete-contact', {id : contact.id}) }}" class="btn btn-danger">Supprimer</a></td>    
     </tr>
      {% endfor %} 
   </tbody>
