@@ -39,15 +39,14 @@ a.text-yellow {
 }
 
 .nom_prix1 {
+  text-decoration: none;
   padding: 5px;
   text-align: center;
   min-height: 125px;
-  text-decoration: none;
   font-family: "Yusei Magic", sans-serif;
   color: #ffd480;
   text-shadow: 1px 1px 2px #ffd480, 0 0 1em black;
 }
-
 
 .price_cart {
   display: flex;
